@@ -2,6 +2,7 @@
 title: hexo+git
 date: 2022-07-01 14:16:05
 tags:
+layout: hexo+git
 ---
 # 第一步
 * 新建项目文件夹
@@ -21,3 +22,5 @@ deploy:
   repo: git@github.com:xxx/xxx.github.io.git github仓库地址
   branch: 分支名 github分支
 ```
+# 主题
+https://hexo.fluid-dev.com/
