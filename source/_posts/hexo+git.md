@@ -22,5 +22,3 @@ deploy:
   repo: git@github.com:xxx/xxx.github.io.git github仓库地址
   branch: 分支名 github分支
 ```
-# 主题
-https://hexo.fluid-dev.com/
