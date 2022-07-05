@@ -30,3 +30,6 @@ layout
   * draft _draft文件夹下生成草稿
   * page  source下生成文件夹，并自带index.md，可以通过xxx.github.io/xxx访问
   * 自定义  _posts下生成文件
+
+# 主题
+[fluid](https://hexo.fluid-dev.com/docs/start/)

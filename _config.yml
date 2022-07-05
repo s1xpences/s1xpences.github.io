@@ -8,7 +8,7 @@ subtitle:                                 # 网站子标题
 description:                              # 网站的描述性
 keywords:                                 # 网站的关键字
 author: lessthan4408@163.com              # 网站的作者
-language: zh-CN                           # 网站采用语言，要跟/theme/***/languages/**.yml下的文件名对应。
+language: zh-CN                          # 网站采用语言，要跟/theme/***/languages/**.yml下的文件名对应。
 timezone: Asia/Shanghai                   # 网站的时区
 
 # URL
@@ -85,7 +85,7 @@ exclude:
 ignore:
 
 # Extensions
-theme: next                               #当前主题名称。值为false时禁用主题
+theme: fluid                               #当前主题名称。值为false时禁用主题
 
 # Deployment
 deploy:                                   #部署部分的设置
