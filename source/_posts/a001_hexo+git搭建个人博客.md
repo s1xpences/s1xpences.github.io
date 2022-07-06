@@ -1,10 +1,14 @@
 ---
 title: hexo+git搭建个人博客
 date: 2022-07-01 14:16:05
+categories:
+- 前端学习
 tags:
+- Hexo
+- git
 ---
-**官方文档 [hexo](https://hexo.io/zh-cn/)**
-
+官方文档 [hexo](https://hexo.io/zh-cn/)
+---
 
 ### 配置
 1. 新建项目文件夹，安装hexo
@@ -27,7 +31,7 @@ npm install hexo-deployer-git --save
 deploy:
   type: git
   repo: git@github.com:xxx/xxx.github.io.git 
-  branch: [branch-name]
+  branch: [branch-name]         #仓库默认分支
 ```
 
 ### 部署

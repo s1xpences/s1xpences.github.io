@@ -2,8 +2,7 @@
 title: {{ title }}
 date: {{ date }}
 categories:
-- Diary
+- 前端学习
 tags:
-- PS3
-- Games
+- 
 ---
