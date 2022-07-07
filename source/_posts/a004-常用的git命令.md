@@ -99,6 +99,12 @@ git branch -d 本地分支名
 git push origin --delete 远程分支名 
 ```
 
+### 合并分支
+>切换到合并分支，合并其他工作树干净的分支
+```git
+git merge 被合并分支名
+```
+
 
 ### 拉取远程新的分支并与本地建立连接
 ```git
