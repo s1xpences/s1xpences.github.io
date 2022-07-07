@@ -5,7 +5,7 @@ categories:
 - 前端学习
 tags:
 - Hexo
-- git
+- Git
 ---
 官方文档 [hexo](https://hexo.io/zh-cn/)
 ---
