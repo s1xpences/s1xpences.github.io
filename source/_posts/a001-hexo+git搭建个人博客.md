@@ -7,7 +7,7 @@ tags:
 - Hexo
 - Git
 ---
-官方文档 [hexo](https://hexo.io/zh-cn/)
+官方文档：[hexo](https://hexo.io/zh-cn/)
 ---
 
 ### 配置
