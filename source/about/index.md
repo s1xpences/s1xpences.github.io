@@ -8,5 +8,7 @@ layout: about
 以前的学习笔记也会陆陆续续的搬运过来！
 life is fantastic！
 
->163邮箱：lessthan4408@163.com
->google邮箱：lessthan4408@gmail.com
+<div class="note note-success">
+    <p>163邮箱：lessthan4408@163.com</p> 
+    <p>google邮箱：lessthan4408@gmail.com</p> 
+</div>
