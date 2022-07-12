@@ -9,7 +9,7 @@ index_img: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Glo
 ---
 
 官方文档：​[mozilla](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-参考视频：[atguigu](https://www.bilibili.com/video/BV1GA411x7z1?spm_id_from=333.999.0.0)  [coderwhy](https://www.bilibili.com/video/BV17j411f74d?spm_id_from=333.999.0.0)
+参考视频：[BV1GA411x7z1](https://www.bilibili.com/video/BV1GA411x7z1?spm_id_from=333.999.0.0)  [BV17j411f74d](https://www.bilibili.com/video/BV17j411f74d?spm_id_from=333.999.0.0)
 
 ---
 

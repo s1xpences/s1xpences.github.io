@@ -8,4 +8,5 @@ layout: about
 以前的学习笔记也会陆陆续续的搬运过来！
 life is fantastic！
 
->个人邮箱：lessthan4408@163.com
+>163邮箱：lessthan4408@163.com
+>google邮箱：lessthan4408@gmail.com
