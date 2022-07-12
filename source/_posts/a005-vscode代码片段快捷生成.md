@@ -5,6 +5,7 @@ categories:
 tags:
   - vscode
 date: 2022-07-08 11:17:01
+index_img:  https://img2.baidu.com/it/u=3701357552,1623780762&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1657731600&t=7ffcca6e10ea2d965dd1a28bbd938588
 ---
 
 ## 设置

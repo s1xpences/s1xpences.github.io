@@ -5,8 +5,10 @@ categories:
 tags:
   - Git
 date: 2022-07-07 15:58:23
+index_img:  https://git-scm.com/images/logo@2x.png
 ---
 官方文档：[Git](https://git-scm.com/book/zh/v2)
+
 ---
 
 

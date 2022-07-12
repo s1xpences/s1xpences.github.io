@@ -6,8 +6,10 @@ categories:
 tags:
 - Hexo
 - Git
+index_img: https://img2.baidu.com/it/u=1969408648,3814003583&fm=253&app=138&size=w931&n=0&f=JPEG&fmt=auto?sec=1657731600&t=e24c64adf1ac37cadc237a70fc3ee967
 ---
 官方文档：[hexo](https://hexo.io/zh-cn/)
+
 ---
 
 ### 配置
