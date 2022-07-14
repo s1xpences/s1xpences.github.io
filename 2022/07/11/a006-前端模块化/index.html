@@ -1,0 +1,734 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
+  <link rel="icon" href="/img/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="s1xpences">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="概念 将一个复杂的程序依据一定的规范封装成几个块，并进行组合在一起。  块内部数据是私有的，只是向外部暴露一些接口与外部其它模块通信。  发展史：  namespace(简单封装)，本质是对象，一点不安全IIFE模式(匿名闭包)，利用立即执行函数，然后暴露IIFE增强模式，当前模块化的基础   优点：  避免命名冲突(减少命名空间污染)更好的分离, 按需加载更高复用性高可维护性   缺点：  需要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端模块化">
+<meta property="og:url" content="https://s1xpences.github.io/2022/07/11/a006-%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/index.html">
+<meta property="og:site_name" content="s1xpences">
+<meta property="og:description" content="概念 将一个复杂的程序依据一定的规范封装成几个块，并进行组合在一起。  块内部数据是私有的，只是向外部暴露一些接口与外部其它模块通信。  发展史：  namespace(简单封装)，本质是对象，一点不安全IIFE模式(匿名闭包)，利用立即执行函数，然后暴露IIFE增强模式，当前模块化的基础   优点：  避免命名冲突(减少命名空间污染)更好的分离, 按需加载更高复用性高可维护性   缺点：  需要">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img2.baidu.com/it/u=2633233721,1758135741&fm=253&app=138&size=w931&n=0&f=JPG&fmt=auto?sec=1657731600&t=e925da9622e91880f3ac759ac9f27c80">
+<meta property="article:published_time" content="2022-07-11T09:51:41.000Z">
+<meta property="article:modified_time" content="2022-07-14T10:11:36.354Z">
+<meta property="article:author" content="s1xpences">
+<meta property="article:tag" content="模块化">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img2.baidu.com/it/u=2633233721,1758135741&fm=253&app=138&size=w931&n=0&f=JPG&fmt=auto?sec=1657731600&t=e925da9622e91880f3ac759ac9f27c80">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>前端模块化 - s1xpences</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"s1xpences.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>天外边的个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/cat.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="前端模块化"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        s1xpences
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-11 17:51" pubdate>
+          2022年7月11日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">前端模块化</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ol>
+<li><p>将一个复杂的程序依据一定的规范封装成几个块，并进行组合在一起。</p>
+</li>
+<li><p>块内部数据是私有的，只是向外部暴露一些接口与外部其它模块通信。</p>
+</li>
+<li><p>发展史：</p>
+<blockquote>
+<p>namespace(简单封装)，本质是对象，一点不安全<br>IIFE模式(匿名闭包)，利用立即执行函数，然后暴露<br>IIFE增强模式，当前模块化的基础</p>
+</blockquote>
+</li>
+<li><p>优点：</p>
+<blockquote>
+<p>避免命名冲突(减少命名空间污染)<br>更好的分离, 按需加载<br>更高复用性<br>高可维护性</p>
+</blockquote>
+</li>
+<li><p>缺点：</p>
+<blockquote>
+<p>需要很多的script标签<br>请求过多<br>依赖模糊<br>难以维护</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h3><ul>
+<li>common.js</li>
+<li>AMD规范</li>
+<li>CMD规范</li>
+<li>es6规范</li>
+</ul>
+<h3 id="common-js"><a href="#common-js" class="headerlink" title="common.js"></a>common.js</h3><ul>
+<li>每个文件都可当作一个模块，常用于服务器端</li>
+<li>在服务器端: 模块的加载是运行时同步加载的(node)</li>
+<li>在浏览器端: 模块需要提前编译打包处理(Browserify工具)，浏览器不认识require  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">/* </span><br><span class="hljs-comment">暴露模块   </span><br><span class="hljs-comment">暴露的本质都是导出expors对象 </span><br><span class="hljs-comment">*/</span><br><span class="hljs-variable language_">module</span> = &#123;<br>    <span class="hljs-attr">exports</span>:&#123;&#125;<br>&#125;<br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">引入模块</span><br><span class="hljs-comment">第三方模块：xxx为模块名(包名),放在文件最上面</span><br><span class="hljs-comment">自定义模块：xxx为模块文件路径 </span><br><span class="hljs-comment">*/</span><br><span class="hljs-built_in">require</span>(xxx)<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="AMD规范-require-js"><a href="#AMD规范-require-js" class="headerlink" title="AMD规范 require.js"></a>AMD规范 require.js</h3><ul>
+<li>专门用于浏览器端, 模块的加载是异步的  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">/* </span><br><span class="hljs-comment">导出</span><br><span class="hljs-comment">*/</span><br><span class="hljs-title function_">define</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) &#123;&#125;)                               <span class="hljs-comment">//定义没有依赖的模块</span><br><span class="hljs-title function_">define</span>([<span class="hljs-string">&#x27;module1&#x27;</span>,<span class="hljs-string">&#x27;module2&#x27;</span>],<span class="hljs-keyword">function</span>(<span class="hljs-params">m1,m2</span>)&#123;&#125;)     <span class="hljs-comment">//定义有依赖的模块</span><br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">导入 </span><br><span class="hljs-comment">*/</span><br>requirejs([<span class="hljs-string">&#x27;module3&#x27;</span>],<span class="hljs-keyword">function</span>(<span class="hljs-params">m3</span>) &#123;&#125;)<br>requirejs.<span class="hljs-title function_">config</span>(&#123;                                  <span class="hljs-comment">//配置数组中模块加载路径：</span><br>    <span class="hljs-attr">baseUrl</span>:<span class="hljs-string">&#x27;js/&#x27;</span>                                   <span class="hljs-comment">//不写模块路径相对于main.js,写的话相当于根路径下js+模块路径</span><br>    <span class="hljs-attr">paths</span>:&#123;<br>        <span class="hljs-attr">module1</span>:<span class="hljs-string">&#x27;./module1&#x27;</span>,                        <span class="hljs-comment">//不用加js后缀，默认已经加上了</span><br>        <span class="hljs-attr">module2</span>:<span class="hljs-string">&#x27;./module2&#x27;</span>,<br>        <span class="hljs-attr">module3</span>:<span class="hljs-string">&#x27;./module3&#x27;</span>,<br>        <span class="hljs-attr">jquery</span>:<span class="hljs-string">&#x27;./jQuery 1.11.1&#x27;</span>                    <span class="hljs-comment">//jquery要小写且支持amd规范</span><br>    &#125;<br>&#125;)<br></code></pre></td></tr></table></figure>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 最后引入的时候使用一个script标签即可 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">data-main</span>=<span class="hljs-string">&#x27;main.js&#x27;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;require.js&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span> <br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="CMD规范-Sea-js"><a href="#CMD规范-Sea-js" class="headerlink" title="CMD规范 Sea.js"></a>CMD规范 Sea.js</h3><ul>
+<li>专门用于浏览器端, 模块的加载是异步的 </li>
+<li>模块使用时才会加载执行  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">/* </span><br><span class="hljs-comment">导出</span><br><span class="hljs-comment">*/</span><br><span class="hljs-title function_">define</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"><span class="hljs-built_in">require</span>,<span class="hljs-built_in">exports</span>,<span class="hljs-variable language_">module</span></span>) &#123;<br>  <span class="hljs-comment">//module.exports = xxx</span><br>  <span class="hljs-built_in">exports</span>.<span class="hljs-property">a</span> = xxx<br>&#125;)<br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">引入 </span><br><span class="hljs-comment">*/</span>  <br><span class="hljs-title function_">define</span>(<span class="hljs-keyword">function</span>(<span class="hljs-params"><span class="hljs-built_in">exports</span></span>) &#123;<br>    <span class="hljs-comment">//同步引入</span><br>    <span class="hljs-keyword">let</span> module1 = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;./module1&#x27;</span>)               <span class="hljs-comment">//引入最后拿到这个模块暴露的东西，但是模块上面的代码也会执行</span><br>    <span class="hljs-comment">//异步引入</span><br>    <span class="hljs-built_in">require</span>.<span class="hljs-title function_">async</span>(<span class="hljs-string">&#x27;./module2&#x27;</span>,<span class="hljs-keyword">function</span>(<span class="hljs-params">module2</span>) &#123;<br>      module2.<span class="hljs-title function_">foo</span>()<br>    &#125;)<br>    <span class="hljs-built_in">exports</span>.<span class="hljs-property">b</span> = xxx<br>&#125;)<br></code></pre></td></tr></table></figure>
+  <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- 使用 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;Sea.js&#x27;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>                       <span class="hljs-comment">&lt;!-- 先引入 --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span>&gt;</span><span class="language-javascript"><span class="hljs-title class_">Seajs</span>.<span class="hljs-title function_">use</span>(<span class="hljs-string">&#x27;main.js&#x27;</span>)</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>                <span class="hljs-comment">&lt;!-- 后使用 --&gt;</span><br></code></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="es6规范"><a href="#es6规范" class="headerlink" title="es6规范"></a>es6规范</h3><ul>
+<li>依赖模块需要编译打包处理，很多浏览器不支持es6语法，需要编译打包成es5  <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">/* </span><br><span class="hljs-comment">具名导出 </span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">export</span> value                                        <span class="hljs-comment">//分别暴露</span><br><span class="hljs-keyword">export</span> &#123;value,value&#125;                                <span class="hljs-comment">//统一暴露</span><br><span class="hljs-comment">//引入：</span><br><span class="hljs-keyword">import</span> &#123;名字<span class="hljs-number">1</span>,名字<span class="hljs-number">2</span>&#125; <span class="hljs-keyword">from</span> 路径    <br><span class="hljs-comment">//或</span><br><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> 变量名 <span class="hljs-keyword">from</span> 路径    <br><span class="hljs-comment">//或</span><br><span class="hljs-keyword">import</span> &#123;名字<span class="hljs-number">1</span>,名字<span class="hljs-number">2</span> <span class="hljs-keyword">as</span> 自定义名字&#125; <span class="hljs-keyword">from</span> 路径          <span class="hljs-comment">//具名导出，引入的时候必须使用对象解构赋值的方式 </span><br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">统一导出 </span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> value                                <span class="hljs-comment">//一个模块中只能用一次</span><br><br><span class="hljs-comment">/* </span><br><span class="hljs-comment">引入 </span><br><span class="hljs-comment">*/</span><br><span class="hljs-keyword">import</span> 自定义名字 <span class="hljs-keyword">from</span> 路径                          <span class="hljs-comment">//引用第三方库，就是这种方式 </span><br></code></pre></td></tr></table></figure></li>
+<li>实现(浏览器端)<blockquote>
+<p>使用Babel将es6编译成es5代码(里面有commonjs的语法)，使用browserify编译打包js<br>配置.babelrc ,rc run control运行时控制文件</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV18s411E7Tj?spm_id_from=333.1007.top_right_bar_window_history.content.click">BV18s411E7Tj</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" class="category-chain-item">前端学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E6%A8%A1%E5%9D%97%E5%8C%96/">#模块化</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>前端模块化</div>
+      <div>https://s1xpences.github.io/2022/07/11/a006-前端模块化/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>s1xpences</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月11日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/12/a007-%E5%BC%82%E6%AD%A5%E7%BC%96%E7%A8%8B%E4%B9%8BPromise/" title="异步编程之Promise">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">异步编程之Promise</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/08/a005-vscode%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90/" title="vscode代码片段快捷生成">
+                        <span class="hidden-mobile">vscode代码片段快捷生成</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"LkxcxlSQuyHELnBFw3GlEJ0X-gzGzoHsz","appKey":"YkhemIer0ObL6vXtk3R0Ip6L","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
