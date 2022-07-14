@@ -9,6 +9,6 @@ layout: about
 life is fantastic！
 
 <div class="note note-success">
-    <p>163邮箱：lessthan4408@163.com</p> 
-    <p>google邮箱：lessthan4408@gmail.com</p> 
+    <p>邮箱1：lessthan4408@163.com</p> 
+    <p>邮箱2：lessthan4408@gmail.com</p> 
 </div>

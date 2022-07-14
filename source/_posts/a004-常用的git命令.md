@@ -7,10 +7,6 @@ tags:
 date: 2022-07-07 15:58:23
 index_img:  https://git-scm.com/images/logo@2x.png
 ---
-官方文档：[Git](https://git-scm.com/book/zh/v2)
-
----
-
 
 ### 本地信息配置
 ```git
@@ -191,3 +187,6 @@ git show xxx                           //查看对应tag提交信息
 git tag                                //查看本地所有tag                                         
 git ls-remote --tag                    //查看远程所有tag
 ```     
+
+---
+官方文档：[Git](https://git-scm.com/book/zh/v2)
