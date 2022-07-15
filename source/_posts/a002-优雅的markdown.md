@@ -1,5 +1,5 @@
 ---
-title: 优雅的md
+title: 优雅的markdown
 date: 2022-07-06 11:16:18
 categories:
 - 前端学习

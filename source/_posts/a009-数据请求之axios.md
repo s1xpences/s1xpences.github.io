@@ -93,4 +93,5 @@ axios在解析域名时先在遇到/api前缀在其前加target后将/api转换�
 ---
 中文文档：[中文文档](http://www.axios-js.com/zh-cn/docs/)
 
-参考视频：[BV1wr4y1K7tq](https://www.bilibili.com/video/BV1wr4y1K7tq?spm_id_from=333.999.0.0)   [BV17j411f74d](https://www.bilibili.com/video/BV17j411f74d?p=141)
+参考视频：
+[BV1wr4y1K7tq](https://www.bilibili.com/video/BV1wr4y1K7tq?spm_id_from=333.999.0.0)   [BV17j411f74d](https://www.bilibili.com/video/BV17j411f74d?p=141)
