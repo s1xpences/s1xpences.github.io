@@ -60,6 +60,14 @@ index_img: https://markdown.com.cn/hero.png
 
 
 ### 添加代码块
+代码片段
+一个`或者两个`包裹
+
+`测试`
+
+`` 测试测试 ``
+
+代码块
 三个`+语言
 ```js
     const a = '0.0'
