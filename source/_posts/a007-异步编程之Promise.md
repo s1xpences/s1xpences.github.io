@@ -5,7 +5,7 @@ categories:
 tags:
   - Promise
 date: 2022-07-12 09:11:32
-index_img: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/promises.png
+index_img: https://img2.baidu.com/it/u=2901216549,1988942842&fm=253&fmt=auto&app=138&f=JPEG?w=499&h=202
 ---
 
 ### 理解和使用

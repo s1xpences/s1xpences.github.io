@@ -5,7 +5,7 @@ categories:
 tags:
   - Git
 date: 2022-07-07 15:58:23
-index_img:  https://git-scm.com/images/logo@2x.png
+index_img:  https://img0.baidu.com/it/u=1641948811,72191990&fm=253&fmt=auto&app=138&f=JPG?w=1000&h=420
 ---
 
 ### 本地信息配置
