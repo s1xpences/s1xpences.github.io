@@ -1,0 +1,1004 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/info/avatar.jpg">
+  <link rel="icon" href="/img/info/avatar.jpg">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="s1xpences">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="react简介react将数据渲染为HTML视图的js库；vue是毛坯房 原生操作DOM繁琐，直接操作DOM会有大量的回流重绘，占用浏览器性能；没有组件化编码方案，代码复用率低 react声明式编码，不用什么事都亲力亲为，只用告诉你应该是怎么样的，不会告诉你具体应该怎么做 使用虚拟DOM和优秀的diffing算法,减少与真实DOM的交互从而减少回流重绘；案例：原生和框架对于数据增加的渲染过程比较">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前端框架之React">
+<meta property="og:url" content="https://s1xpences.github.io/2022/07/19/a013-%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E4%B9%8BReact/index.html">
+<meta property="og:site_name" content="s1xpences">
+<meta property="og:description" content="react简介react将数据渲染为HTML视图的js库；vue是毛坯房 原生操作DOM繁琐，直接操作DOM会有大量的回流重绘，占用浏览器性能；没有组件化编码方案，代码复用率低 react声明式编码，不用什么事都亲力亲为，只用告诉你应该是怎么样的，不会告诉你具体应该怎么做 使用虚拟DOM和优秀的diffing算法,减少与真实DOM的交互从而减少回流重绘；案例：原生和框架对于数据增加的渲染过程比较">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img1.baidu.com/it/u=3545225878,2086373205&fm=253&fmt=auto&app=138&f=JPEG?w=450&h=236">
+<meta property="article:published_time" content="2022-07-19T01:59:41.000Z">
+<meta property="article:modified_time" content="2022-07-23T02:01:10.401Z">
+<meta property="article:author" content="s1xpences">
+<meta property="article:tag" content="React">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img1.baidu.com/it/u=3545225878,2086373205&fm=253&fmt=auto&app=138&f=JPEG?w=450&h=236">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>前端框架之React - s1xpences</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"s1xpences.github.io","root":"/","version":"1.9.2","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 6.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 50vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>天外边的个人博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/info/cat.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="前端框架之React"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-author" aria-hidden="true"></i>
+        s1xpences
+      </span>
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-07-19 09:59" pubdate>
+          2022年7月19日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          14k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          119 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="busuanzi_container_page_pv" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="busuanzi_value_page_pv"></span> 次
+        </span>
+        
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">前端框架之React</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="react简介"><a href="#react简介" class="headerlink" title="react简介"></a>react简介</h3><p>react将数据渲染为HTML视图的js库；vue是毛坯房</p>
+<p>原生操作DOM繁琐，直接操作DOM会有大量的回流重绘，占用浏览器性能；没有组件化编码方案，代码复用率低</p>
+<p>react声明式编码，不用什么事都亲力亲为，只用告诉你应该是怎么样的，不会告诉你具体应该怎么做</p>
+<p>使用虚拟DOM和优秀的diffing算法,减少与真实DOM的交互从而减少回流重绘；案例：原生和框架对于数据增加的渲染过程比较</p>
+<h3 id="react核心模块"><a href="#react核心模块" class="headerlink" title="react核心模块"></a>react核心模块</h3><ol>
+<li><p>babel<br>ES6&#x3D;&gt;ES5 JSX&#x3D;&gt;JS</p>
+</li>
+<li><p>react-development<br>核心库</p>
+</li>
+<li><p>react-dom<br>扩展库帮你操作dom</p>
+</li>
+<li><p>为什么选择使用jsx语法?<br>更加简单的创建虚拟DOM;但是babel会将JSX翻译成原始创建虚拟dom(方式二)的写法，即方式一是方式二的语法糖</p>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//方式一</span><br> <span class="hljs-keyword">const</span> <span class="hljs-variable constant_">VDOM</span> = (<span class="hljs-comment">//可缩进写法加小括号</span><br>   <span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;title&quot;</span>&gt;</span></span><br><span class="language-xml">     <span class="hljs-tag">&lt;<span class="hljs-name">span</span>&gt;</span>Hello, React!<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span></span><br><span class="language-xml">   <span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span></span><br> )<br><br><span class="hljs-comment">//方式二</span><br><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">VDOM</span> = <span class="hljs-title class_">React</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;h1&#x27;</span>,&#123;<span class="hljs-attr">id</span>:<span class="hljs-string">&#x27;title&#x27;</span>&#125;,<span class="hljs-title class_">React</span>.<span class="hljs-title function_">createElement</span>(<span class="hljs-string">&#x27;span&#x27;</span>,&#123;&#125;,<span class="hljs-string">&#x27;Hello, React!&#x27;</span>))<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="虚拟dom和真实dom"><a href="#虚拟dom和真实dom" class="headerlink" title="虚拟dom和真实dom"></a>虚拟dom和真实dom</h3><p>本质是Object类型的对象(一般对象)</p>
+<p>真实dom身上属性多(document.creatElement);虚拟dom(ReactDOM.creatElement)属性少,因为虚拟dom是react内部用，无需那么多属性</p>
+<p>虚拟dom最终会被react转换为真实dom呈现在页面中</p>
+<h3 id="JSX语法规则"><a href="#JSX语法规则" class="headerlink" title="JSX语法规则"></a>JSX语法规则</h3><p>JSX全称JavaScript XML，XML早期用于存储和传输数据(微信公众号服务器和开发者服务器还是用的xml)，现在使用json</p>
+<p>xml语法：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">student</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">name</span>&gt;</span>tomatoes<span class="hljs-tag">&lt;/<span class="hljs-name">name</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">age</span>&gt;</span>23<span class="hljs-tag">&lt;/<span class="hljs-name">age</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">student</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p>jsx规则：    </p>
+<ol>
+<li>定义虚拟dom时，不要写引号;  </li>
+<li>标签中混入js表达式要用{},且只能是表达式，js代码语句不能写;<br>let 变量名 &#x3D; 表达式&#x2F;js语句，能接到值的即表达式，函数本身其实也是表达式</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 表达式      </span><br>a;a+b;<span class="hljs-title function_">demo</span>(<span class="hljs-number">1</span>);arr.<span class="hljs-title function_">map</span>();<span class="hljs-keyword">function</span> <span class="hljs-title function_">test</span>(<span class="hljs-params"></span>) &#123;&#125;; <br><br><span class="hljs-comment">//代码        </span><br><span class="hljs-keyword">if</span>()&#123;&#125;;<span class="hljs-keyword">for</span>()&#123;&#125;;<span class="hljs-keyword">switch</span>()&#123;&#125;;<br></code></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>样式的类名指定不要用class，要用className；因为class为es6中的类定义关键字; </li>
+<li>行内样式要用<code>style=&#123;&#123;key:value&#125;&#125;</code>的形式，外面的{}表示里面是js表达式，里面的{}表示对象.需要连接符表示的样式名要用小驼峰; </li>
+<li>虚拟dom只有一个根标签  </li>
+<li>标签必须闭合 <code>&lt;input type=&quot;text&quot;/&gt;</code></li>
+<li>标签首字母：<br>小写字母开头，则必须与html中的标签一致，若html中没有则报错，如：<code>&lt;good&gt;&lt;/good&gt;</code><br>大写字母开头，则react渲染相应的组件，若组件没有定义则报错，如：<code>&lt;Good&gt;&lt;/Good&gt;</code></li>
+<li>react会自动遍历数组，但是不能遍历对象</li>
+<li>jsx中的普通函数不要加(),否则在渲染的时候就会调用(和vue不一样)。加了()是将函数的返回值作为事件的回调</li>
+</ol>
+<h3 id="模块与组件"><a href="#模块与组件" class="headerlink" title="模块与组件"></a>模块与组件</h3><p>模块：向外提供特定功能的js程序，一般就是一个js文件</p>
+<p>组件：用来实现局部功能效果的代码和资源的集合(html&#x2F;css&#x2F;js&#x2F;img&#x2F;video&#x2F;font等)</p>
+<h3 id="开发者工具"><a href="#开发者工具" class="headerlink" title="开发者工具"></a>开发者工具</h3><p>components：观察网页的组件，以及组件的属性</p>
+<p>profiler：记录网站的性能，渲染用了多久，哪个组件加载最慢</p>
+<h3 id="函数式组件"><a href="#函数式组件" class="headerlink" title="函数式组件"></a>函数式组件</h3><p>函数命名使用大驼峰;</p>
+<p>组件内部的this指向undefined，babel解析时开启了严格模式禁止自定义函数的this指向window;</p>
+<p>执行ReactDOM.render后发生了什么？react解析组件标签，找到MyComponent组件;发现组件是函数定义的，随后调用该函数;将返回的虚拟dom转换为真实dom呈现到页面</p>
+<h3 id="类式组件"><a href="#类式组件" class="headerlink" title="类式组件"></a>类式组件</h3><p>类基础：  </p>
+<blockquote>
+<p>类中的constructor在new 实例时调用; </p>
+<p>只使用父类的属性则constructor可以省略，相当于自动帮你调用了，实例化时同样需要传入参数；若需添加子类属性则需要constructor且super()必须写且参数个数等于父类属性个数加子类属性个数;  </p>
+<p>类中所定义的方法，都是放在了类的原型对象上，供实例去使用;  </p>
+<p>子类prototype上的_proto_指向父类的prototype; </p>
+<p><strong>super用来调用父类的构造器必须放在当前构造器的最前面（对于this操作的最前面）,就像调用函数类似</strong> </p>
+<p>super除了调用父类构造器，还能调用父类上的实例方法，如super.say();</p>
+<p>js中构造器的主要作用是用来接收参数，调用this，可以写变量声明，如let a&#x3D;1; </p>
+<p>若子类上有和父类相同的属性则实例中子类属性会覆盖父类实例;  </p>
+<p>当时子类和父类相同的方法是不会覆盖的，都各自在自己的原型对象上，只是调用时原型链有就近原则;  </p>
+<p>类里面的内容：构造器、构造器外面的赋值语句的属性和方法，如a&#x3D;1、方法(写在原型身上)、静态static(写在类身上);</p>
+</blockquote>
+<p>类式组件继承自React.Component,暂时不用考虑构造器,但是必须要有有返回值的render方法</p>
+<p>执行ReactDOM.render后发生了什么？</p>
+<blockquote>
+<p>react解析组件标签，找到MyComponent组件;发现组件是类定义的，随后new出该类的实例并通过该实例调用(所以render中的this没有问题)到原型上的render方法;将返回的虚拟dom转换为真实dom呈现到页面</p>
+</blockquote>
+<h3 id="理解state"><a href="#理解state" class="headerlink" title="理解state"></a>理解state</h3><p>复杂组件(类式组件)和简单组件(函数式组件)的判断标准，即有无state；函数式组件连this都没有，但是可以使用hooks</p>
+<p>state存在于组件实例对象上</p>
+<h3 id="组件三大核心属性"><a href="#组件三大核心属性" class="headerlink" title="组件三大核心属性"></a>组件三大核心属性</h3><p>仅限类式组件</p>
+<h4 id="state"><a href="#state" class="headerlink" title="state"></a>state</h4><blockquote>
+<p>state最开始定义在React.Component类上值为null，通过继承到了类组件上;类组件通过重新定义从而覆盖了父类上的state，并应用到了每一个组件实例上。 </p>
+<p>为什么会this丢失？ 因为this.changeWheather并不是直接调用，而是给了onClick作为回调点击之后才调用。</p>
+</blockquote>
+<p><img src="/img/sample/a013/this%E4%B8%A2%E5%A4%B1.png" srcset="/img/loading.gif" lazyload alt="this丢失"></p>
+<blockquote>
+<p>注意状态不可直接更改，要借助一个内置的API(setState存在于React.Component的原型上)，setState更新状态是一个合并的动作不是替换;  </p>
+<p><strong>类里面可以直接写赋值语句。所有实例都有的属性且值一样，可以不用写在constructor里面；如果是new实例传入的则必须通过constructor接收;</strong>  </p>
+<p>简写：state直接写赋值语句，实例方法不用写在原型上而是直接赋值语句+箭头函数;</p>
+</blockquote>
+<h4 id="props"><a href="#props" class="headerlink" title="props"></a>props</h4><blockquote>
+<p>将实例化组件时的组件属性传递到类的props中；疑问：为什么不写super(props)也会值也会传递到React.Component的this.props上？(相当于react帮你自动调用了super(props));</p>
+<p>es6扩展运算符(浅拷贝)，可以展开数组(…arr)不能直接展开对象(…obj)，但是能够以字面量形式复制对象({…obj});  </p>
+<p>props是只读的;  </p>
+<p>构造器写不写没有任何影响，但是如果写的话就要传props否则会出现在构造器中访问this.props&#x3D;&#x3D;undefined；所以说类中的构造器基本都省略。构造器中扩展state则必须传props;</p>
+<p>函数式组件没有state、refs，但是可以有props</p>
+</blockquote>
+<h4 id="refs"><a href="#refs" class="headerlink" title="refs"></a>refs</h4><blockquote>
+<p>refs拿到的是真实dom;</p>
+<p>不要过度使用ref;</p>
+<p>不推荐使用字符串形式的ref，存在一些效率的问题;  </p>
+<p>回调函数形式的ref，是往实例自身上挂真实dom;</p>
+<p>内联函数形式<code>ref=&#123;c=&gt;&#123;this.xx = c&#125;&#125;</code>，react会在render时自动调用函数，并且将当前节点作为实参传入; </p>
+<p><strong>内联函数在页面首次render时会调用一次，但是state改变时render再次调用且将之前的内联函数清除创建一个新的函数实例，所以每次state更新回调两次内联函数,且第一次打印的参数为null，第二次才是当前的真实dom;</strong></p>
+<p>class的绑定函数形式的ref，第一次render时调用绑定函数，之后改变state触发render时，组件知道函数为自身函数并且之前调用过，不会创建一个新的函数实例且不再调用函数；</p>
+<p>内联函数的问题无关紧要，真实开发常用；  </p>
+<p>createRef调用后可以返回一个容器，该容器可以存储被ref所标识的节点,该容器是专人专用,用一个创建一个,虽然繁琐但是强烈推荐  </p>
+<p>使用： 字符串形式：<code>this.refs.xxx</code> 回调函数形式：<code>this.xxx</code> createRef形式：<code>this.xxx.current</code></p>
+</blockquote>
+<h3 id="事件处理"><a href="#事件处理" class="headerlink" title="事件处理"></a>事件处理</h3><p>通过onXxx属性指定事件处理函数(注意大小写)</p>
+<p>react使用的是自定义(合成)事件，而不是原生dom事件，为了更好的兼容性</p>
+<p>react中的事件是通过事件委托方式处理的(委托给组件最外层的元素<code>&lt;div&gt;&lt;/div&gt;</code>，冒泡)，为了高效</p>
+<p>通过event.target得到的是触发事件的dom元素对象(事件源)，可以避免过度使用ref</p>
+<h3 id="收集表单数据"><a href="#收集表单数据" class="headerlink" title="收集表单数据"></a>收集表单数据</h3><p>非受控组件  </p>
+<blockquote>
+<p>表单提交默认会刷新页面使用e.preventDefault()可阻止提交，一般使用ajax页面无刷新获取数据;<br>点击按钮后取节点的value值(现用现取);</p>
+</blockquote>
+<p>受控组件  </p>
+<blockquote>
+<p>随着输入维护状态(类似vue的双向数据绑定)，推荐使用，基本没用ref</p>
+</blockquote>
+<h3 id="高阶函数和函数柯里化"><a href="#高阶函数和函数柯里化" class="headerlink" title="高阶函数和函数柯里化"></a>高阶函数和函数柯里化</h3><p>一个函数接受的参数是一个函数，或者调用的返回值是一个函数。那么该函数称之为高阶函数</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 常见的高阶函数</span><br><span class="hljs-keyword">new</span> <span class="hljs-title class_">Promise</span>(<span class="hljs-function">(<span class="hljs-params">reslove,reject</span>) =&gt;</span> &#123;&#125;)<br><br><span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">()=&gt;</span>&#123;&#125;, <span class="hljs-number">1000</span>)<br><br>arr.<span class="hljs-title function_">map</span>(<span class="hljs-function">(<span class="hljs-params">item,index</span>) =&gt;</span> &#123;&#125;)<br><br><span class="hljs-keyword">const</span> <span class="hljs-title function_">saveData</span> = (<span class="hljs-params">type</span>) =&gt; &#123; <span class="hljs-keyword">return</span> <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> &#123; <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(&#123; [type]: event.<span class="hljs-property">target</span>.<span class="hljs-property">value</span> &#125;)&#125;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>函数柯里化，通过函数调用继续返回函数的方式。实现多次接收参数最后统一处理的函数编码形式。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">sum</span>(<span class="hljs-params">a</span>) &#123;  <br>    <span class="hljs-keyword">return</span><span class="hljs-function">(<span class="hljs-params">b</span>)=&gt;</span> &#123;  <br>        <span class="hljs-keyword">return</span><span class="hljs-function">(<span class="hljs-params">c</span>) =&gt;</span>&#123;  <br>          <span class="hljs-keyword">return</span> a + b +c  <br>        &#125;    <br>    &#125;  <br>&#125;  <br><span class="hljs-title function_">sum</span>(<span class="hljs-number">1</span>)(<span class="hljs-number">2</span>)(<span class="hljs-number">3</span>)<br></code></pre></td></tr></table></figure>
+
+<p>不用柯里化的方式是函数里面返回函数，回调地狱是函数里面调函数</p>
+<h3 id="组件的生命周期"><a href="#组件的生命周期" class="headerlink" title="组件的生命周期"></a>组件的生命周期</h3><h4 id="旧生命周期"><a href="#旧生命周期" class="headerlink" title="旧生命周期"></a>旧生命周期</h4><p><img src="/img/sample/a013/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F(%E6%97%A7).png" srcset="/img/loading.gif" lazyload alt="生命周期(旧)"> </p>
+<p>常用：  </p>
+<blockquote>
+<p>componentDidMount               一般做一些初始化的事，例如：开启定时器、发送网络请求、订阅消息<br>componentWillUnmount            一般做一些收尾的事，例如：关闭定时器、取消订阅消息<br>render                          必须使用  </p>
+</blockquote>
+<h4 id="新生命周期"><a href="#新生命周期" class="headerlink" title="新生命周期"></a>新生命周期</h4><p><img src="/img/sample/a013/%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F(%E6%96%B0).png" srcset="/img/loading.gif" lazyload alt="生命周期(新)"> </p>
+<p>新旧生命周期对比：   </p>
+<blockquote>
+<p>旧废弃三个(componentWillMount、componentWillUpdate、componentWillRecieveProps)<br>新增加两个(getDerivedStateFromProps、getSnapshotBeforeUpdate)，不常用</p>
+</blockquote>
+<h3 id="DOM的diffing算法"><a href="#DOM的diffing算法" class="headerlink" title="DOM的diffing算法"></a>DOM的diffing算法</h3><p>diff的最小单位是节点</p>
+<h4 id="虚拟DOM中的key的作用："><a href="#虚拟DOM中的key的作用：" class="headerlink" title="虚拟DOM中的key的作用："></a>虚拟DOM中的key的作用：</h4><p>当状态数据发生变化时，react会根据新的数据生成一堆新的虚拟dom，随后进行新虚拟dom和旧虚拟dom的diff比较 </p>
+<p>旧虚拟dom中找到与新虚拟dom中相同的key：</p>
+<blockquote>
+<p>若虚拟dom中的内容没变，直接使用之前的真实dom<br>若虚拟dom中内容变了，则生成新的真实dom，随后替换掉页面中之前的真实dom </p>
+</blockquote>
+<p>旧虚拟dom中未找到与新虚拟dom中相同的key：根据数据创建新的真实dom，随后渲染到页面</p>
+<h4 id="用index作为key可能会引发的问题："><a href="#用index作为key可能会引发的问题：" class="headerlink" title="用index作为key可能会引发的问题："></a>用index作为key可能会引发的问题：</h4><p>对数据进行逆序添加、逆序删除等破坏顺序操作，会产生没有必要的真实dom更新。界面效果没有问题，但效率低。</p>
+<p><img src="/img/sample/a013/index%E4%BD%9C%E4%B8%BAkey%E9%80%A0%E6%88%90%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E7%9C%9F%E5%AE%9Edom%E6%9B%B4%E6%96%B0.png" srcset="/img/loading.gif" lazyload alt="造成不必要的真实dom更新"></p>
+<p>如果结构中还包含输入类的dom(表单元素类)，会产生错误dom更新。界面有问题 </p>
+<p><img src="/img/sample/a013/index%E4%BD%9C%E4%B8%BAkey%E7%BB%93%E6%9E%84%E4%B8%AD%E5%8C%85%E5%90%AB%E8%BE%93%E5%85%A5%E7%B1%BBdom.png" srcset="/img/loading.gif" lazyload alt="index作为key结构中包含输入类dom"></p>
+<p>如果不存在上述情况，使用index作为key是没有问题的</p>
+<h3 id="create-react-app"><a href="#create-react-app" class="headerlink" title="create-react-app"></a>create-react-app</h3><h4 id="xxx脚手架"><a href="#xxx脚手架" class="headerlink" title="xxx脚手架"></a>xxx脚手架</h4><blockquote>
+<p>用来帮助程序员快速创建一个基于xxx库的模板项目<br>包含了所有需要的配置(语法检查、jsx编译、devserver…)<br>下载好了所有相关依赖<br>可以直接运行一个简单效果</p>
+</blockquote>
+<p>react提供了一个用于创建react项目的脚手架库：create-react-app；整体架构为react+webpack+es6+eslint</p>
+<p>使用脚手架开发项目的特点：模块化、组件化、工程化</p>
+<p>创建项目并启动：<code>npm i -g create-react-app =&gt; create-react-app xxx =&gt; cd xxx =&gt; npm start</code>    </p>
+<h4 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h4><p>public 静态资源文件(页面、样式、公共图片)  </p>
+<blockquote>
+<p>  –robots.txt    爬虫规则文件</p>
+</blockquote>
+<p>src  源文件</p>
+<blockquote>
+<p>  –App.js        App组件，首字母大写的都是组件<br>  –App.test.js   测试App的，几乎不用<br>  –index.css     公用样式<br>  –index.js      入口文件，和vue中的main.js类似<br>  –logon.svg     dome页面中一直旋转的图<br>  –reportWebVitals.js   记录页面性能<br>  –setupTest.js          组件测试：性能整体测试，模块的单元测试</p>
+</blockquote>
+<h4 id="todolist案例"><a href="#todolist案例" class="headerlink" title="todolist案例"></a>todolist案例</h4><ol>
+<li>vscode代码提示<br>快捷生成组件结构，先进入文件，生成类式组件rcc,生成函数式组件rfc(类似于.vue)，需要安装插件；<br>jsx中html标签提示，在setting.json中加入</li>
+</ol>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-attr">&quot;emmet.includeLanguages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;javascript&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;javascriptreact&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>可以在子组件中更改父组件中的状态，即将父组件更改自己状态的函数当做props传给子组件；<br>类似于vue中子组件调用this.$emit(‘xxx’,’参数’),或者直接 :fn&#x3D;”fn”,子组件this.fn(‘参数’)</p>
+</li>
+<li><p>状态在哪里，操作状态的方法就在哪里</p>
+</li>
+<li><p>checkbox 上使用checked属性，则必须使用onChange事件;defaultChecked只在第一次能用，后面改变勾选和不勾选状态和它无关<br>defaultValue和value的区别同上</p>
+</li>
+<li><p>动态初始化列表，如何确定将数据放在哪个组件的state中？<br>某个组件使用：放在其自身的state中<br>某些组件使用：放在他们的共同组件state中(状态提升)</p>
+</li>
+<li><p>父子组件通信：<br>父组件给子组件传递数据，通过props<br>子组件给父组件传递数据，通过props(函数)，子组件通过调用父组件传过来的函数向父组件传参</p>
+</li>
+</ol>
+<h4 id="ajax"><a href="#ajax" class="headerlink" title="ajax"></a>ajax</h4><p>跨域代理</p>
+<p><img src="/img/sample/a013/%E8%B7%A8%E5%9F%9F%E4%BB%A3%E7%90%86%E5%8E%9F%E7%90%86.png" srcset="/img/loading.gif" lazyload alt="跨域代理原理"></p>
+<p>方式一</p>
+<blockquote>
+<p>package.json中配置 (这种方式只能配一个代理)<br>“proxy”: “<a href="http://localhost:5000&quot;">http://localhost:5000&quot;</a><br>axios中url写localhost:3000，会自动转发给5000<br>如果请求为3000(public目录下)有的则返回，没有的则找5000,5000也没有则404</p>
+</blockquote>
+<p>方式二</p>
+<blockquote>
+<p>在src目录下建立setupProxy.js文件(使用commonjs语法)<br>可以配置多个代理  </p>
+</blockquote>
+<p>方式三</p>
+<blockquote>
+<p>后端解决(cors 一劳永逸)</p>
+</blockquote>
+<h4 id="消息订阅-发布机制"><a href="#消息订阅-发布机制" class="headerlink" title="消息订阅-发布机制"></a>消息订阅-发布机制</h4><p>兄弟(任意)组件通信(传递数据),PubSubJs(类似vue中的eventBus,($on|subscribe)、($emit|publish)、($off|unsubscribe))</p>
+<h4 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h4><p>axios、jquery都是对原生xhr(window自带api)的封装<br>fetch是window自带的api，也是promise风格;老版本浏览器可能不支持<br>xhr和fetch都是用来发送ajax请求<br>参考博客：<a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000003810652">https://segmentfault.com/a/1190000003810652</a></p>
+<h4 id="route"><a href="#route" class="headerlink" title="route"></a>route</h4><ol>
+<li>前后端路由<blockquote>
+<p>单页面应用(SPA)，<strong>点击页面中的链接不会刷新页面或打开新的页面，只会做页面的局部刷新</strong>，单页面多组件；<br>一个路由就是一个映射关系(key|path,value|component(前端路由)或function(后端路由))；<br>后端路由：route.get(path,function(req,res){})；</p>
+<p>route的底层是通过操作BOM上的history实现的<br>方式一：直接使用H5退出的history身上的api<br>方式二：hash值(类似于锚点跳转，不会刷新页面，并且有跳转记录)，兼容性好，#号后面的东西不会带给服务器</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="/img/sample/a013/%E5%90%8E%E7%AB%AF%E8%B7%AF%E7%94%B1.png" srcset="/img/loading.gif" lazyload alt="后端路由"></p>
+<p><img src="/img/sample/a013/%E5%89%8D%E7%AB%AF%E8%B7%AF%E7%94%B1%E5%8E%9F%E7%90%86.png" srcset="/img/loading.gif" lazyload alt="前端路由"> </p>
+<ol start="2">
+<li><p>react-router-dom  </p>
+<blockquote>
+<p>路由工作过程：点击导航链接引起路径变化，路径变化被路由器检测到进行匹配组件从而展示</p>
+<p>封装NavLink，标签内容会以children传到子组件的this.props中，同时子组件可以设置children改变自己的内容<br>需要选中样式时使用NavLink,之后封装MyNavLink；不需要时直接使用Link</p>
+<p>使用Routes包裹后相同的路径只匹配一次，后面的不会再匹配，效果同之前的Switch(提高路由匹配效率，单一匹配)</p>
+</blockquote>
+</li>
+<li><p>解决样式丢失问题</p>
+<blockquote>
+<p>当路由出现多级时，如：&#x2F;a&#x2F;home，之后点击刷新会出现样式丢失，因为此时请求文件路径localhost:3000&#x2F;a&#x2F;css&#x2F;bootstrap.css  </p>
+<p>请求文件地址localhost:3000&#x2F;css&#x2F;bootstrap.css,其实是请求public下的&#x2F;css&#x2F;bootstrap.css。  </p>
+<p>在不设置跨域的情况下，请求文件在public没有则默认返回public&#x2F;index.html </p>
+<p>方式一：直接&#x2F;css&#x2F;bootstrap.css不要.&#x2F;<br>方式二：%PUBLIC_URL%&#x2F;&#x2F;css&#x2F;bootstrap.css(此方法只适用与react脚手架)<br>方式三：仍然使用.&#x2F;css&#x2F;bootstrap.css，index.js中使用HashRouter  </p>
+</blockquote>
+</li>
+<li><p>模糊匹配<br>v6以上版本默认为精准匹配<br>模糊匹配navlink上的to，按&#x2F;从前往后匹配，第一个有则展示相应的route</p>
+</li>
+<li><p>重定向<br>路由和组件的匹配是从上往下匹配的<br>重定向一般写在路由注册的最下方，当所有路由都无法匹配时，跳转到redirect指定的路由</p>
+</li>
+<li><p>路由传参</p>
+<blockquote>
+<p>嵌套路由的匹配是从最外层开始的，当点击home&#x2F;news时匹配<code>&lt;Route path=&quot;/home&quot;&gt;</code>完美匹配，加载路由对应的组件。然后匹配当前组件中对应的路由&#x2F;home&#x2F;news<br>react-router-dom V6- 直接在路由组件的this.props上取<br><a target="_blank" rel="noopener" href="https://react-router.docschina.org/web/guides/philosophy">中文文档</a> </p>
+<p>react-router-dom V6 在<strong>函数组件</strong>中<br>获取params可以使用useParams；<br>获取search可以使用useSearchParams或useLocation；(使用useLocation需要将字符串转义为对象)<br>获取state可以使用useLocation<br>该方法虽然浏览器地址没有记录(不同的state，history栈中只记录一个)，但是在使用BrowserRouter刷新传递的参数不会丢失<br><strong>HashRouter刷新传递的参数会丢失</strong><br><a target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6/api">官方文档</a></p>
+</blockquote>
+</li>
+<li><p>编程式路由导航  </p>
+<blockquote>
+<p>react-router-dom V6- this.props.history.push()<br>只有路由组件中才有history，普通组件中没有，因为路由组件中自动传了路由相关的props；<br>普通组件中使用export default withRouter(组件名) </p>
+<p>react-router-dom V6  使用useNavigate<br>hook必须在函数组件内部调用，且在最外层</p>
+<p>react-router-dom 没有像vue-router中的集中管理文件router&#x2F;index.js</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="react-UI组件库"><a href="#react-UI组件库" class="headerlink" title="react UI组件库"></a>react UI组件库</h4><p>国外：material-ui<br>国内：ant-design</p>
+<h3 id="redux"><a href="#redux" class="headerlink" title="redux"></a>redux</h3><p>redux是专门用于状态管理的js库(不是react插件库)<br>集中管理react中多个组件共享的状态，可用于状态共享和组件通信</p>
+<h4 id="redux工作原理"><a href="#redux工作原理" class="headerlink" title="redux工作原理"></a>redux工作原理</h4><ol>
+<li><p>action<br>包含两个属性(就是一个简单的js对象)<br>type：标识属性，值为字符串，唯一必要属性(初始化时为@@REDUX&#x2F;INIT_a.3.b.4)<br>data：数据属性，值为任意类型，可选属性(初始化时没有该属性) </p>
+</li>
+<li><p>reducers<br>用于加工状态、初始化状态。加工时，根据旧的state和action，产生新的state的纯函数<br>初始化时previousState为undefined  </p>
+</li>
+<li><p>store<br>将state、action、reduce联系在一起的对象</p>
+</li>
+</ol>
+<p><img src="/img/sample/a013/redux%E5%8E%9F%E7%90%86%E5%9B%BE.png" srcset="/img/loading.gif" lazyload alt="原理图"></p>
+<ol start="4">
+<li><p>redux只负责管理状态，状态改变驱动页面展示，需要自己写</p>
+</li>
+<li><p>异步action<br>就是action的值为函数，store会帮忙调用传过去的函数；<br>异步action中一般都会调用同步action；<br>想要对状态进行操作，但是具体数据靠异步任务返回；<br>异步action不是必须要用的，完全可以自己等待异步任务的结果后再去分发同步action </p>
+</li>
+<li><p>同步action<br>action的值为Object的一般对象</p>
+</li>
+</ol>
+<h4 id="react-redux"><a href="#react-redux" class="headerlink" title="react-redux"></a>react-redux</h4><p>UI组件：不使用任何redux的api，只负责页面的呈现、交互<br>容器组件：负责和redux通信，将结果交给UI组件<br>mapDispatchToProps也可以是一个对象<br>react-redux不需要监听状态更新驱动页面展示<br>Provider不需要在每个容器组件上通过props传递store，自动给所有容器组件传递store；这样传UI组件的props中没有store<br>数据共享，需要引入combineReducers；redux管理的状态合并为一个对象</p>
+<p><img src="/img/sample/a013/react-redux%E6%A8%A1%E5%9E%8B%E5%9B%BE.png" srcset="/img/loading.gif" lazyload alt="react-redux模型图"></p>
+<h4 id="纯函数"><a href="#纯函数" class="headerlink" title="纯函数"></a>纯函数</h4><p>只要是同样的输入，必定得到同样的输出<br>不得改写参数数据  所以personReducer中不能preState.push(data)<br>不会产生任何副作用，例如不会调用网络请求(不确定什么时候返回结果)<br>不能调用Date.now()或Math.random()等不纯的方法(同样的输入，没有同样的输出)<br>redux中的reducer必须是一个纯函数</p>
+<h4 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h4><p>redux开发者工具 npm i redux-devtools-extension，store中配置composeWithDevTools<br>项目打包运行全局安装npm i serve -g，npm run build之后serve build将build作为根目录快速启动一台服务器，可以看到react图标是蓝色而不是红色</p>
+<h3 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h3><h4 id="setState"><a href="#setState" class="headerlink" title="setState"></a>setState</h4><p>回调函数在状态更新完毕，页面也更新后(render调用后)才被调用<br>对象式setState是函数式setState的语法糖<br>如果新状态不依赖于原状态——建议使用对象式(不管原来和是多少,点击按钮最终变成99)<br>如果新状态以来于原状态——建议使用函数式<br>使用没那么绝对，都可以用</p>
+<h4 id="lazyload"><a href="#lazyload" class="headerlink" title="lazyload"></a>lazyload</h4><p>不使用懒加载，查看开发者工具network，将disable cache勾上，点击切换路由组件没有网络请求，说明网页加载时将所有组件都加载了<br>使用懒加载后，路由组件随用随请求，且只请求一次，后面切换到相同的路由不会重复请求</p>
+<h4 id="Hooks"><a href="#Hooks" class="headerlink" title="Hooks"></a>Hooks</h4><p>Hook是react 16.8.0版本增加的新特性&#x2F;新语法，可以让你在函数式组件中使用state以及其他的react特性<br>函数组件相当于类式组件的render执行 1+n次  </p>
+<ol>
+<li><p>stateHook：  </p>
+<blockquote>
+<p>可以让函数组件用state状态<br>const[xxx,setxxx] &#x3D; React.useState(初始值)，setxxx用法同类式组件的setState都有两种用法 </p>
+</blockquote>
+</li>
+<li><p>EffectHook：  </p>
+<blockquote>
+<p>可以让你再函数式组件中执行副作用操作(用于模拟类组件中的生命周期)<br>可以把EffectHook看做componentDidMount、componentDidUpdate、componentWillUnmount的组合 </p>
+</blockquote>
+</li>
+<li><p>RefHook</p>
+</li>
+</ol>
+<h4 id="Fragment"><a href="#Fragment" class="headerlink" title="Fragment"></a>Fragment</h4><p>避免页面结构层级过深，占位标签</p>
+<h4 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h4><p>常用于祖孙组件之间的通信<br>在应用开发中一般不用context，一般都用它封装react插件，如：react-redux 的 <code>&lt;Provider store=&#123;store&#125;&gt;</code></p>
+<h4 id="组件优化"><a href="#组件优化" class="headerlink" title="组件优化"></a>组件优化</h4><p>component的两个问题：  </p>
+<blockquote>
+<p>只要执行setState()即使不改变状态，组件也会重新render()<br>当前组件重新render()，其子组件也会重新render()，导致效率低</p>
+</blockquote>
+<p>解决：<br>方式一：shouldComponentUpdate  </p>
+<blockquote>
+<p>在shouldComponentUpdate中比较新旧state或props，如果有变化返回true，没有则返回false</p>
+</blockquote>
+<p>方式二：PureComponent(常用)  </p>
+<blockquote>
+<p>PureComponent重写了shouldComponentUpdate，只有state或props有变化时才返回true<br>只是进行了state和props的浅比较，如果只是数据对象内部数据变了，数据引用地址没变，返回false；正常更新state也是同理<br>即：this.setState(新对象)，如果新对象为空返回false，如果新对象是this.state的地址应用同样返回false<br>所以说不要直接修改state数据，而是要产生新数据</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">//如：</span><br>state = &#123;<span class="hljs-attr">name</span>:<span class="hljs-string">&#x27;rose&#x27;</span>&#125;<br>    <span class="hljs-keyword">const</span> obj = <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span><br>    obj.<span class="hljs-property">name</span> = <span class="hljs-string">&#x27;jack&#x27;</span><br>    <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(obj)<br><br><span class="hljs-comment">//又如：</span><br>state=&#123;<span class="hljs-attr">arr</span>:[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>]&#125;<br>      <span class="hljs-keyword">const</span> &#123;arr&#125; = <span class="hljs-variable language_">this</span>.<span class="hljs-property">state</span><br>      arr.<span class="hljs-title function_">unshift</span>(<span class="hljs-number">3</span>)<br>      <span class="hljs-variable language_">this</span>.<span class="hljs-title function_">setState</span>(&#123;arr&#125;)<br></code></pre></td></tr></table></figure>
+
+<p>childrenProps：son向grandson通过props传递自身state不方便      <code>&lt;Son&gt;&lt;GrandSon/&gt;&lt;/Son&gt;</code>              <code>this.props.children</code><br>renderProps：类似于vue中的插槽                                <code>&lt;Son render=&#123;(xxx)=&gt;&lt;GrandSon xxx=&#123;xxx&#125;/&gt;&#125;/&gt;</code>     <code>this.props.render(this.state.xxx)</code></p>
+<p>错误边界  </p>
+<blockquote>
+<p>将错误控制在一定范围内，子组件出错不会影响外层的组件，使用getDerivedStateFromError写在子组件的父组件里<br>配合componentDidCatch统计错误，反馈给后台<br>只适用于生产环境，开发环境还是会报错(20220210两处都能用)<br>只能捕获后代组件生命周期产生的错误，不能捕获自己组件产生的错误和其他组件在合成事件、定时器中产生的错误</p>
+</blockquote>
+<p>组件通信<br>组件之间相互传递东西(状态、修改状态的方法)  </p>
+<blockquote>
+<p>父子组件：props<br>兄弟组件：消息订阅-发布、集中管理(redux)<br>祖孙组件：消息订阅-发布、集中管理(redux)、conText(开发用的较少，主要用来封装插件)</p>
+</blockquote>
+<h3 id="router-v6"><a href="#router-v6" class="headerlink" title="router-v6"></a>router-v6</h3><h4 id="Routes与Route"><a href="#Routes与Route" class="headerlink" title="Routes与Route"></a>Routes与Route</h4><p><code>&lt;Routes&gt;</code>必须要包裹<code>&lt;Route&gt;</code>使用<br><code>&lt;Route&gt;</code>相当于一个if语句，如果其路径与当前url匹配，则呈现其对应的组件<br>当url发生变化时，<code>&lt;Routes&gt;</code>会查看子<code>&lt;Route&gt;</code>找到最佳匹配并呈现组件<br><code>&lt;Route&gt;</code>也可以嵌套使用，且可配合<code>useRoutes()</code>配置路由表，但需要通过<code>&lt;Outlet&gt;</code>来渲染其子路由</p>
+<h4 id="Navgate"><a href="#Navgate" class="headerlink" title="Navgate"></a>Navgate</h4><p>只要<Navgate>被渲染，就会修改url，切换视图</p>
+<h4 id="Outlet"><a href="#Outlet" class="headerlink" title="Outlet"></a>Outlet</h4><p>指定路由组件的展示位置</p>
+<h4 id="路由传参"><a href="#路由传参" class="headerlink" title="路由传参"></a>路由传参</h4><p>params参数，可通过 useParams,useMatch 两种方式获取<br>search参数，可通过 useSearchParams,useLocation 两种方式获取</p>
+<h4 id="编程式路由"><a href="#编程式路由" class="headerlink" title="编程式路由"></a>编程式路由</h4><p>使用 useNavigate hook</p>
+<h4 id="useInRouterContext"><a href="#useInRouterContext" class="headerlink" title="useInRouterContext()"></a>useInRouterContext()</h4><p>如果组件在<code>&lt;Router&gt;</code>(BrowserRouter、HashRouter)的上下文中呈现，则useInRouterContext钩子返回true，否则返回false</p>
+<h4 id="useNavigationType"><a href="#useNavigationType" class="headerlink" title="useNavigationType()"></a>useNavigationType()</h4><p>返回当前的导航类型，用户是如何来到当前页面的<br>返回值，POP(刷新)、PUSH、REPLACE</p>
+<h4 id="useOutlet"><a href="#useOutlet" class="headerlink" title="useOutlet()"></a>useOutlet()</h4><p>呈现当前组件中要渲染的嵌套路由<br>如果嵌套路由没有挂载，则为null；如果已经挂载，则为路由对象</p>
+<h4 id="useResolvedPath"><a href="#useResolvedPath" class="headerlink" title="useResolvedPath()"></a>useResolvedPath()</h4><p>给定一个url，解析其中的path、search、hash值</p>
+<h3 id="React中使用ts"><a href="#React中使用ts" class="headerlink" title="React中使用ts"></a>React中使用ts</h3><p>创建支持ts的react项目<br><code>npx create-react-app 项目名称 --template=typescript</code><br><code>yarn create react-app 项目名称 --template=typescript</code></p>
+<p>在已有的项目中使用ts<br><a target="_blank" rel="noopener" href="https://create-react-app.bootcss.com/docs/adding-typescript">参考文档</a></p>
+<h4 id="文件变化说明"><a href="#文件变化说明" class="headerlink" title="文件变化说明"></a>文件变化说明</h4><p>tsconfig.json，指定ts的编译选项，如：编译时是否移除注释；也可以手动生成tsc –init<br>react组件的文件扩展名变为.tsx<br>src目录下新增react-app-env.d.ts，react项目默认的类型声明文件</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs typescript"><span class="hljs-comment">/// &lt;reference types=&quot;react-scripts&quot; /&gt;</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>三斜线指令，指定依赖的其他类型声明文件，types表示依赖的类型声明文件包的名称，告诉ts帮我加载react-scripts这个包提供的类型声明文件<br>react-scripts中又依赖了其他的类型声明文件(react、react-dom、node)，声明了图片、样式等模块的类型<br>react项目中会自动加载src下的.d.ts文件，通过修改tsconfig.json中的include配置；react项目中会自动处理.tsx文件</p>
+</blockquote>
+<h4 id="tsconfig-json"><a href="#tsconfig-json" class="headerlink" title="tsconfig.json"></a>tsconfig.json</h4><p><a target="_blank" rel="noopener" href="https://www.typescriptlang.org/tsconfig">配置参考文档</a><br>可通过鼠标移入的方式查看解释说明</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs json">  <span class="hljs-attr">&quot;compilerOptions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span>                              <span class="hljs-comment">//编译选项</span><br>    <span class="hljs-attr">&quot;target&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;es5&quot;</span><span class="hljs-punctuation">,</span>                                <span class="hljs-comment">//生成代码的语言版本</span><br>    <span class="hljs-attr">&quot;lib&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>                                        <span class="hljs-comment">//指定要包含在编译中的library</span><br>    <span class="hljs-string">&quot;dom&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;dom.iterable&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-string">&quot;esnext&quot;</span><br>    <span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;allowJs&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>                                <span class="hljs-comment">//允许ts编译器编译js文件</span><br>    <span class="hljs-attr">&quot;skipLibCheck&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>                           <span class="hljs-comment">//跳过类型声明文件的所写类型的检查，可能会有类型准确性的问题</span><br>    <span class="hljs-attr">&quot;esModuleInterop&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>                        <span class="hljs-comment">//es模块互操作，屏蔽EsModule和commonJS之间的差异</span><br>    <span class="hljs-attr">&quot;allowSyntheticDefaultImports&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>           <span class="hljs-comment">//允许import a form &#x27;b，即使模块中没有显示指定export导出</span><br>    <span class="hljs-attr">&quot;strict&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>                                 <span class="hljs-comment">//开启严格模式</span><br>    <span class="hljs-attr">&quot;forceConsistentCasingInFileNames&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>       <span class="hljs-comment">//对文件名称强制区分大小写</span><br>    <span class="hljs-attr">&quot;noFallthroughCasesInSwitch&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>             <span class="hljs-comment">//为switch语句启动错误报告</span><br>    <span class="hljs-attr">&quot;module&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;esnext&quot;</span><span class="hljs-punctuation">,</span>                             <span class="hljs-comment">//生成js代码的模块化标准</span><br>    <span class="hljs-attr">&quot;moduleResolution&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;node&quot;</span><span class="hljs-punctuation">,</span>                     <span class="hljs-comment">//模块查找策略</span><br>    <span class="hljs-attr">&quot;resolveJsonModule&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>                      <span class="hljs-comment">//允许导入.json的模块</span><br>    <span class="hljs-attr">&quot;isolatedModules&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>                        <span class="hljs-comment">//是否将没有import|export的文件视为全局脚本文件</span><br>    <span class="hljs-attr">&quot;noEmit&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>                                 <span class="hljs-comment">//编译时不生成任何文件，只进行类型检查；</span><br>                                                    <span class="hljs-comment">//开启时使用babel进行类型转换，通过babel-loader处理ts文件</span><br>    <span class="hljs-attr">&quot;jsx&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;react-jsx&quot;</span>                              <span class="hljs-comment">//指定将jsx编译成什么形式</span><br><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br><span class="hljs-attr">&quot;include&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>                                        <span class="hljs-comment">//指定允许ts处理的目录</span><br>    <span class="hljs-string">&quot;src&quot;</span><br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+
+<p>可通过命令行为文件指定编译配置，tsc .&#x2F;index.ts –target es6，这种方式将忽略tsconfig.json文件<br>直接使用tsc命令，会将当前目录下的ts文件按照tsconfig.json转换成js文件<br>推荐使用tscofig.json配置文件</p>
+<h4 id="react中的常用类型"><a href="#react中的常用类型" class="headerlink" title="react中的常用类型"></a>react中的常用类型</h4><p>在不使用ts时，可以使用prop-types，为react组件提供类型检查<br>ts项目中，推荐使用ts实现组件类型校验，代替prop-types<br>react项目通过@types&#x2F;react、@types&#x2F;react-dom类型声明包，来提供类型。CRA已帮我们安装(react-app-env.d.ts)，直接使用即可</p>
+<h4 id="函数组件"><a href="#函数组件" class="headerlink" title="函数组件"></a>函数组件</h4><p>组件类型、属性类型、属性默认值(解构时提供默认值)、事件和事件对象类型<br>如何知道e的类型<code>onChange=&#123;e=&gt;&#123;&#125;&#125;</code>，将鼠标放在e上，利用ts的类型推断查看事件对象类型</p>
+<h4 id="类式组件-1"><a href="#类式组件-1" class="headerlink" title="类式组件"></a>类式组件</h4><p>组件类型、属性类型、属性默认值(解构时提供默认值)、状态类型、事件</p>
+<hr>
+<p>参考文档：<br><a target="_blank" rel="noopener" href="https://react.docschina.org/docs/getting-started.html">react文档</a><br><a target="_blank" rel="noopener" href="https://reactrouter.com/docs/en/v6">react-router</a><br><a target="_blank" rel="noopener" href="https://react-redux.js.org/">react-redux</a><br><a target="_blank" rel="noopener" href="http://cn.redux.js.org/introduction/getting-started">redux</a></p>
+<p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wy4y1D7JT?spm_id_from=333.999.0.0">BV1wy4y1D7JT</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%89%8D%E7%AB%AF%E5%AD%A6%E4%B9%A0/" class="category-chain-item">前端学习</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/React/">#React</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>前端框架之React</div>
+      <div>https://s1xpences.github.io/2022/07/19/a013-前端框架之React/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>s1xpences</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年7月19日</div>
+        </div>
+      
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/20/a014-%E5%89%8D%E7%AB%AF%E6%A1%86%E6%9E%B6%E4%B9%8Bvue/" title="前端框架之vue">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">前端框架之vue</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/07/18/a012-%E4%BA%86%E4%B8%8D%E8%B5%B7%E7%9A%84TypeScript/" title="了不起的TypeScript">
+                        <span class="hidden-mobile">了不起的TypeScript</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://lib.baomitu.com/valine/1.4.17/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"LkxcxlSQuyHELnBFw3GlEJ0X-gzGzoHsz","appKey":"YkhemIer0ObL6vXtk3R0Ip6L","path":"window.location.pathname","placeholder":null,"avatar":"retro","meta":["nick","mail","link"],"requiredFields":[],"pageSize":10,"lang":"zh-CN","highlight":false,"recordIP":false,"serverURLs":"","emojiCDN":null,"emojiMaps":null,"enableQQ":false},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+  
+</div>
+
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.18.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.10/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

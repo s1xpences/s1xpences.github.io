@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
-  <link rel="icon" href="/img/avatar.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/info/avatar.jpg">
+  <link rel="icon" href="/img/info/avatar.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -16,26 +16,28 @@
   <meta name="author" content="s1xpences">
   <meta name="keywords" content="">
   
-    <meta name="description" content="创建标题格式：#+空格+名称 ，最后回车。实现标题的添加，不同的#数量对应不同的标题，一级标题一个，二级两个类推。 字体设置 加粗字体左右两边加两个*  斜体字体左右两边加一个*  删除线字体左右两边加两个波浪线~   添加引用 是通过大于号&gt;+ 空格，文字最后回车  分割线三个- 或三个* 添加图片![自己起的图片名称]+(),可以在括号里添加本地图片或网络图片 超链接[名称]+()，括号">
+    <meta name="description" content="webpack什么是webpack webpack 是一种前端资源构建工具，一个静态资源打包器 浏览器中不能直接识别工程化项目中的less(通过loader编译)、esmodule(可直接编译)等语法，webpack这些编译成浏览器可以直接识别的语法  webpack的作用 模块化： 帮助我们自动处理模块之间的依赖关系（包括嵌套依赖，只用打包main.js,main依赖的其他模块它会自动处理），不">
 <meta property="og:type" content="article">
-<meta property="og:title" content="优雅的md">
-<meta property="og:url" content="https://s1xpences.github.io/2022/07/06/a002-%E4%BC%98%E9%9B%85%E7%9A%84md/index.html">
+<meta property="og:title" content="js静态模块打包器">
+<meta property="og:url" content="https://s1xpences.github.io/2022/07/15/a010-js%E9%9D%99%E6%80%81%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85%E5%99%A8/index.html">
 <meta property="og:site_name" content="s1xpences">
-<meta property="og:description" content="创建标题格式：#+空格+名称 ，最后回车。实现标题的添加，不同的#数量对应不同的标题，一级标题一个，二级两个类推。 字体设置 加粗字体左右两边加两个*  斜体字体左右两边加一个*  删除线字体左右两边加两个波浪线~   添加引用 是通过大于号&gt;+ 空格，文字最后回车  分割线三个- 或三个* 添加图片![自己起的图片名称]+(),可以在括号里添加本地图片或网络图片 超链接[名称]+()，括号">
+<meta property="og:description" content="webpack什么是webpack webpack 是一种前端资源构建工具，一个静态资源打包器 浏览器中不能直接识别工程化项目中的less(通过loader编译)、esmodule(可直接编译)等语法，webpack这些编译成浏览器可以直接识别的语法  webpack的作用 模块化： 帮助我们自动处理模块之间的依赖关系（包括嵌套依赖，只用打包main.js,main依赖的其他模块它会自动处理），不">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://markdown.com.cn/hero.png">
-<meta property="article:published_time" content="2022-07-06T03:16:18.000Z">
-<meta property="article:modified_time" content="2022-07-14T10:10:05.059Z">
+<meta property="og:image" content="https://img2.baidu.com/it/u=987836416,1801902677&fm=253&fmt=auto&app=138&f=JPG?w=1006&h=500">
+<meta property="article:published_time" content="2022-07-15T03:13:53.000Z">
+<meta property="article:modified_time" content="2022-07-23T02:01:10.391Z">
 <meta property="article:author" content="s1xpences">
-<meta property="article:tag" content="markdown">
+<meta property="article:tag" content="webpack">
+<meta property="article:tag" content="Rollup">
+<meta property="article:tag" content="vite">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://markdown.com.cn/hero.png">
+<meta name="twitter:image" content="https://img2.baidu.com/it/u=987836416,1801902677&fm=253&fmt=auto&app=138&f=JPG?w=1006&h=500">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>优雅的md - s1xpences</title>
+  <title>js静态模块打包器 - s1xpences</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,13 +196,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/cat.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/info/cat.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="优雅的md"></span>
+            <span id="subtitle" data-typed-text="js静态模块打包器"></span>
           
         </div>
 
@@ -216,8 +218,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-06 11:16" pubdate>
-          2022年7月6日 上午
+        <time datetime="2022-07-15 11:13" pubdate>
+          2022年7月15日 上午
         </time>
       </span>
     
@@ -228,7 +230,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          306 字
+          2k 字
         
       </span>
     
@@ -239,7 +241,7 @@
         
         
         
-          3 分钟
+          17 分钟
         
       </span>
     
@@ -285,56 +287,54 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">优雅的md</h1>
+            <h1 style="display: none">js静态模块打包器</h1>
             
             
               <div class="markdown-body">
                 
-                <h3 id="创建标题"><a href="#创建标题" class="headerlink" title="创建标题"></a>创建标题</h3><p>格式：#+空格+名称 ，最后回车。实现标题的添加，不同的#数量对应不同的标题，一级标题一个，二级两个类推。</p>
-<h3 id="字体设置"><a href="#字体设置" class="headerlink" title="字体设置"></a>字体设置</h3><ol>
-<li><p>加粗<br><strong>字体</strong>左右两边加两个*</p>
-</li>
-<li><p>斜体<br><em>字体</em>左右两边加一个*</p>
-</li>
-<li><p>删除线<br><del>字体</del>左右两边加两个波浪线~</p>
-</li>
+                <h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><h3 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h3><ol>
+<li>webpack 是一种前端资源构建工具，一个静态资源打包器</li>
+<li>浏览器中不能直接识别工程化项目中的less(通过loader编译)、esmodule(可直接编译)等语法，webpack这些编译成浏览器可以直接识别的语法</li>
 </ol>
-<h3 id="添加引用"><a href="#添加引用" class="headerlink" title="添加引用"></a>添加引用</h3><blockquote>
-<p>是通过大于号&gt;+ 空格，文字最后回车</p>
+<h3 id="webpack的作用"><a href="#webpack的作用" class="headerlink" title="webpack的作用"></a>webpack的作用</h3><ol>
+<li>模块化：<blockquote>
+<p>帮助我们自动处理模块之间的依赖关系（包括嵌套依赖，只用打包main.js,main依赖的其他模块它会自动处理），不仅仅是js文件，css、图片、json文件等都可以被当作模块来使用</p>
 </blockquote>
-<h3 id="分割线"><a href="#分割线" class="headerlink" title="分割线"></a>分割线</h3><p>三个- 或三个*</p>
-<h3 id="添加图片"><a href="#添加图片" class="headerlink" title="添加图片"></a>添加图片</h3><p>![自己起的图片名称]+(),可以在括号里添加本地图片或网络图片<br><img src="https://csfile.ossxrcloud.net/ydnImg/200X200/802dac9a93084_1641346280372.png" srcset="/img/loading.gif" lazyload alt="实例"></p>
-<h3 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h3><p>[名称]+()，括号里面添加1的网址<br><a target="_blank" rel="noopener" href="https://markdown.com.cn/">实例</a></p>
-<h3 id="添加列表"><a href="#添加列表" class="headerlink" title="添加列表"></a>添加列表</h3><h4 id="有序列表"><a href="#有序列表" class="headerlink" title="有序列表"></a>有序列表</h4><p>1+点号（英文输入法）+空格</p>
-<ol>
-<li>a</li>
-<li>b</li>
+</li>
+<li>打包：<blockquote>
+<p>将webpack中的各种资源模块进行打包合并成一个或多个包（bundle），打包过程对资源进行处理，比如压缩图片、sass转成css、es6转es5，ts转js等操作</p>
+</blockquote>
+</li>
 </ol>
-<h4 id="无序列表"><a href="#无序列表" class="headerlink" title="无序列表"></a>无序列表</h4><p>*或+或- 加空格</p>
-<ul>
-<li>a</li>
-<li>b</li>
-</ul>
-<h3 id="添加表格"><a href="#添加表格" class="headerlink" title="添加表格"></a>添加表格</h3><p>竖杠</p>
-<table>
-<thead>
-<tr>
-<th>名字</th>
-<th>性别</th>
-<th>生日</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>s1xpences</td>
-<td>男</td>
-<td>18</td>
-</tr>
-</tbody></table>
-<h3 id="添加代码块"><a href="#添加代码块" class="headerlink" title="添加代码块"></a>添加代码块</h3><p>三个&#96;+语言</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs js"><span class="hljs-keyword">const</span> a = <span class="hljs-string">&#x27;0.0&#x27;</span><br></code></pre></td></tr></table></figure>
-
+<h3 id="项目结构"><a href="#项目结构" class="headerlink" title="项目结构"></a>项目结构</h3><blockquote>
+<p>webpack依赖node环境，node环境为了能正常执行很多代码，必须包含各种依赖包，需要npm（包管理工具）</p>
+<p>src源码;dist为打包后的文件配置到服务器即可</p>
+<p>package.json scirpts 项中的使用<br>npm run + 指令 即可执行对应指令后面的命令，但是和直接执行不一样的地方在于会优先找本地安装的对应命令的包（不是-g安装的）若没找到则使用全局安装的包<br>在终端（cmd窗口、本地终端）中使用webpack会找全局安装的包</p>
+<p>loader(转换器)：js代码webpack会自动处理，css、图片、es6、ts、.jsx、.vue等高级的东西webpack本身是不支持转化的，则需要给webpack扩展对应的loader<br>通过npm安装需要使用的loader，在webpack.config.js中的module关键字下进行配置</p>
+<p>入口文件放最外层，功能相关的文件放相应的文件夹中</p>
+<p>plugin(扩展器)：对webpack本身进行扩展，如打包优化、文件压缩等<br>npm安装需要使用的plugin(某些webpack内置的插件不需要安装),在webpack配置plugins项</p>
+<p>webpack真实打包 是将有依赖的js文件，当成数组元素最终形成一个数组做为执行函数_webpack_require_的实参</p>
+</blockquote>
+<h3 id="vue-webpack"><a href="#vue-webpack" class="headerlink" title="vue-webpack"></a>vue-webpack</h3><p>vue有两种版本<br>runtime-only：代码中不可以有任何的template;<br>runtime-compiler,可以有template，compiler可以用于编译template</p>
 <hr>
-<p>官方文档：<a target="_blank" rel="noopener" href="https://markdown.com.cn/">markdown</a></p>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://www.webpackjs.com/concepts/">webpackjs</a></p>
+<p>参考视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1e7411j7T5?spm_id_from=333.999.0.0">BV1e7411j7T5</a>   <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1cv411C74F?spm_id_from=333.999.0.0">BV1cv411C74F</a>   <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17j411f74d?spm_id_from=333.999.0.0">BV17j411f74d</a></p>
+<h2 id="Rollup"><a href="#Rollup" class="headerlink" title="Rollup"></a>Rollup</h2><ol>
+<li>Rollup 是一款 ES Modules 打包器，从作用上来看，Rollup 与 Webpack 非常类似。不过相比于 Webpack，Rollup要小巧的多，打包生成的文件更小。（识别commonJs需要插件）</li>
+<li>热更新：Rollup不支持HMR，在对js以外的模块的支持上不如webpack，但是如果是打包纯js库例如react，前期的vue的话，使用rollup是很合适的，打包的产物比较干净，没有webpack那么多工具函数</li>
+<li>Rollup 的插件机制设计得相对更干净简洁，单个模块的 resolve &#x2F; load &#x2F; transform 跟打包环节完全解耦，所以 Vite 才能在开发时模拟 Rollup 的插件机制，并且兼容大部分 Rollup 插件</li>
+<li>rollup原生支持tree-shaking</li>
+</ol>
+<hr>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://www.rollupjs.com/">rollupjs</a></p>
+<h2 id="Vite"><a href="#Vite" class="headerlink" title="Vite"></a>Vite</h2><ol>
+<li>一个开发服务器，它基于 原生 ES 模块 提供了丰富的内建功能，如速度很快的 【模块热更新HMR】</li>
+<li>一套构建指令，它使用 Rollup打包你的代码，并且它是预配置的，可以输出用于生产环境的优化过的静态资源</li>
+<li>快速的冷启动：vite会直接启动开发服务器，不需要进行打包操作，所以不需要分析模块的依赖、不需要编译，因此启动速度非常快<br>即时的模块热更新</li>
+<li>真正的按需编译：利用现代浏览器支持ES Module的特性，当浏览器请求某个模块的时候，再根据需要对模块的内容进行编译，这种方式大大缩短了编译时间<br>Rollup 是一款 ES Modules 打包器，从作用上来看，Rollup 与 Webpack 非常类似。不过相比于 Webpack，Rollup要小巧的多，打包生成的文件更小。（识别commonJs需要插件）<br>热更新：Rollup不支持HMR，在对js以外的模块的支持上不如webpack，但是如果是打包纯js库例如react，前期的vue的话，使用rollup是很合适的，打包的产物比较干净，没有webpack那么多工具函数<br>Rollup 的插件机制设计得相对更干净简洁，单个模块的 resolve &#x2F; load &#x2F; transform 跟打包环节完全解耦，所以 Vite 才能在开发时模拟 Rollup 的插件机制，并且兼容大部分 Rollup 插件<br>rollup原生支持tree-shaking</li>
+</ol>
+<hr>
+<p>官方文档：<a target="_blank" rel="noopener" href="https://cn.vitejs.dev/">vitejs</a><br>参考博客：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_41968486/article/details/125450518">csdn_qq_41968486</a></p>
 
                 
               </div>
@@ -368,7 +368,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/markdown/">#markdown</a>
+        <a href="/tags/webpack/">#webpack</a>
+      
+        <a href="/tags/Rollup/">#Rollup</a>
+      
+        <a href="/tags/vite/">#vite</a>
       
     </div>
   
@@ -380,8 +384,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>优雅的md</div>
-      <div>https://s1xpences.github.io/2022/07/06/a002-优雅的md/</div>
+      <div>js静态模块打包器</div>
+      <div>https://s1xpences.github.io/2022/07/15/a010-js静态模块打包器/</div>
     </div>
     <div class="license-meta">
       
@@ -393,7 +397,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月6日</div>
+          <div>2022年7月15日</div>
         </div>
       
       
@@ -423,9 +427,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/06/a003-%E6%9C%89%E8%B6%A3-%E6%9C%89%E7%94%A8%E7%9A%84%E7%BD%91%E7%AB%99/" title="有趣|有用的网站">
+                      <a href="/2022/07/15/b001-%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/" title="【置顶】写在前面">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">有趣|有用的网站</span>
+                        <span class="hidden-mobile">【置顶】写在前面</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -433,8 +437,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/01/a001-hexo+git%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" title="hexo+git搭建个人博客">
-                        <span class="hidden-mobile">hexo+git搭建个人博客</span>
+                      <a href="/2022/07/15/a009-%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E4%B9%8Baxios/" title="数据请求之axios">
+                        <span class="hidden-mobile">数据请求之axios</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

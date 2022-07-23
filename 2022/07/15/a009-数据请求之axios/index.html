@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/avatar.jpg">
-  <link rel="icon" href="/img/avatar.jpg">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/info/avatar.jpg">
+  <link rel="icon" href="/img/info/avatar.jpg">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -16,26 +16,26 @@
   <meta name="author" content="s1xpences">
   <meta name="keywords" content="">
   
-    <meta name="description" content="设置vscode设置&#x3D;&gt;用户代码片段 vue3配置输入vue回车进入vue.json.code-snippets 123456789101112131415161718192021222324&amp;#123;	&quot;Print to console&quot;: &amp;#123;		&quot;prefix&quot;: &quot;vue&quot;,		&quot;body&amp;qu">
+    <meta name="description" content="数据请求的特点1. 无刷新更新数据 2. 异步与服务器通信 3. 前端和后端负载平衡 4. 基于、支持标准 5. 界面与应用分离 什么是axiosaxios是基于promise的http客户端，可以在浏览器(发送AJAX)和node(发送http请求)环境中运行axios的执行结果返回是一个promise对象 响应结果结构1&amp;#123;config,data,headers,request,sta">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vscode代码片段快捷生成">
-<meta property="og:url" content="https://s1xpences.github.io/2022/07/08/a005-vscode%E4%BB%A3%E7%A0%81%E7%89%87%E6%AE%B5%E5%BF%AB%E6%8D%B7%E7%94%9F%E6%88%90/index.html">
+<meta property="og:title" content="数据请求之axios">
+<meta property="og:url" content="https://s1xpences.github.io/2022/07/15/a009-%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E4%B9%8Baxios/index.html">
 <meta property="og:site_name" content="s1xpences">
-<meta property="og:description" content="设置vscode设置&#x3D;&gt;用户代码片段 vue3配置输入vue回车进入vue.json.code-snippets 123456789101112131415161718192021222324&amp;#123;	&quot;Print to console&quot;: &amp;#123;		&quot;prefix&quot;: &quot;vue&quot;,		&quot;body&amp;qu">
+<meta property="og:description" content="数据请求的特点1. 无刷新更新数据 2. 异步与服务器通信 3. 前端和后端负载平衡 4. 基于、支持标准 5. 界面与应用分离 什么是axiosaxios是基于promise的http客户端，可以在浏览器(发送AJAX)和node(发送http请求)环境中运行axios的执行结果返回是一个promise对象 响应结果结构1&amp;#123;config,data,headers,request,sta">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img2.baidu.com/it/u=3701357552,1623780762&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1657731600&t=7ffcca6e10ea2d965dd1a28bbd938588">
-<meta property="article:published_time" content="2022-07-08T03:17:01.000Z">
-<meta property="article:modified_time" content="2022-07-12T12:09:28.967Z">
+<meta property="og:image" content="https://img2.baidu.com/it/u=782602782,576825549&fm=253&fmt=auto&app=138&f=JPEG?w=1000&h=500">
+<meta property="article:published_time" content="2022-07-15T01:26:37.000Z">
+<meta property="article:modified_time" content="2022-07-23T02:01:10.391Z">
 <meta property="article:author" content="s1xpences">
-<meta property="article:tag" content="vscode">
+<meta property="article:tag" content="axios">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://img2.baidu.com/it/u=3701357552,1623780762&fm=253&app=120&size=w931&n=0&f=JPEG&fmt=auto?sec=1657731600&t=7ffcca6e10ea2d965dd1a28bbd938588">
+<meta name="twitter:image" content="https://img2.baidu.com/it/u=782602782,576825549&fm=253&fmt=auto&app=138&f=JPEG?w=1000&h=500">
   
   
     <meta name="referrer" content="no-referrer-when-downgrade">
   
   
-  <title>vscode代码片段快捷生成 - s1xpences</title>
+  <title>数据请求之axios - s1xpences</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,13 +194,13 @@
   
 
 <div id="banner" class="banner" parallax=true
-     style="background: url('/img/cat.png') no-repeat center center; background-size: cover;">
+     style="background: url('/img/info/cat.png') no-repeat center center; background-size: cover;">
   <div class="full-bg-img">
     <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="vscode代码片段快捷生成"></span>
+            <span id="subtitle" data-typed-text="数据请求之axios"></span>
           
         </div>
 
@@ -216,8 +216,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-08 11:17" pubdate>
-          2022年7月8日 上午
+        <time datetime="2022-07-15 09:26" pubdate>
+          2022年7月15日 上午
         </time>
       </span>
     
@@ -228,7 +228,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          792 字
+          1.4k 字
         
       </span>
     
@@ -239,7 +239,7 @@
         
         
         
-          7 分钟
+          12 分钟
         
       </span>
     
@@ -285,15 +285,53 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">vscode代码片段快捷生成</h1>
+            <h1 style="display: none">数据请求之axios</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="设置"><a href="#设置" class="headerlink" title="设置"></a>设置</h2><p>vscode设置&#x3D;&gt;用户代码片段</p>
-<h3 id="vue3配置"><a href="#vue3配置" class="headerlink" title="vue3配置"></a>vue3配置</h3><p>输入vue回车进入vue.json.code-snippets</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>	<span class="hljs-attr">&quot;Print to console&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>		<span class="hljs-attr">&quot;prefix&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vue&quot;</span><span class="hljs-punctuation">,</span><br>		<span class="hljs-attr">&quot;body&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>			<span class="hljs-string">&quot;&lt;template&gt;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;   $2&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;&lt;/template&gt;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;\n&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;&lt;script lang=\&quot;ts\&quot;&gt;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;export default &#123;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;    name: \&quot;\&quot;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;&#125;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;&lt;/script&gt;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;&lt;script lang=\&quot;ts\&quot; setup&gt;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;import &#123; ref, reactive &#125; from &#x27;vue&#x27;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;&lt;/script&gt;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;\n&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;&lt;style lang=\&quot;less\&quot; scoped&gt;&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;   $3&quot;</span><span class="hljs-punctuation">,</span><br>			<span class="hljs-string">&quot;&lt;/style&gt;&quot;</span><span class="hljs-punctuation">,</span><br>		<span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>		<span class="hljs-attr">&quot;description&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Log output to console&quot;</span><br>	<span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
-<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>在vscode中输入vue即可快捷生成指定的代码块</p>
+                <h3 id="数据请求的特点"><a href="#数据请求的特点" class="headerlink" title="数据请求的特点"></a>数据请求的特点</h3><p><strong>1. 无刷新更新数据</strong></p>
+<p><strong>2. 异步与服务器通信</strong></p>
+<p><strong>3. 前端和后端负载平衡</strong></p>
+<p><strong>4. 基于、支持标准</strong></p>
+<p><strong>5. 界面与应用分离</strong></p>
+<h3 id="什么是axios"><a href="#什么是axios" class="headerlink" title="什么是axios"></a>什么是axios</h3><p>axios是基于promise的http客户端，可以在浏览器(发送AJAX)和node(发送http请求)环境中运行<br>axios的执行结果返回是一个promise对象</p>
+<h3 id="响应结果结构"><a href="#响应结果结构" class="headerlink" title="响应结果结构"></a>响应结果结构</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;config,data,headers,request,status,statusTxt&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>config：发送请求的配置对象<br>data：响应体的结果，axios自动进行了json解析<br>headers：响应头信息<br>request：原生的ajax请求对象<br>status：响应状态码<br>statusTxt：响应状态字符串</p>
+</blockquote>
+<h3 id="请求配置对象"><a href="#请求配置对象" class="headerlink" title="请求配置对象"></a>请求配置对象</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&#123;url,method,baseURL,transformRequest,transformResponse,headers,params&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>transformRequest：对请求参数进行预处理<br>transformResponse：对响应结果进行预处理</p>
+</blockquote>
+<h3 id="实例对象"><a href="#实例对象" class="headerlink" title="实例对象"></a>实例对象</h3><p>实例对象的功能和axios的功能几近一样，使用时一般不会使用全局的axios<br>可以应用实例给不同的域名设置默认配置</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript">axios.<span class="hljs-property">defaults</span>.<span class="hljs-property">baseURL</span><br><span class="hljs-keyword">const</span> duanzi = axios.<span class="hljs-title function_">create</span>(&#123;<span class="hljs-attr">baseURL</span>:<span class="hljs-string">&#x27;http://b.com&#x27;</span>&#125;)<br></code></pre></td></tr></table></figure>
+<h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><blockquote>
+<p>拦截器类似于promise.prototype.then(成功回调，失败回调)<br>请求拦截器config：可以对请求参数进行处理<br>响应拦截器response：可以对响应结果进行处理<br>请求拦截器使用场景：</p>
+<ul>
+<li>config中的信息不符合服务器的要求，需要更改时</li>
+<li>每次发送网络请求希望界面显示请求图标时(转圈效果)</li>
+<li>某些网络请求(比如登录需要携带token)，必须携带一些特殊信息时</li>
+</ul>
+</blockquote>
+<h3 id="网络模块的选择"><a href="#网络模块的选择" class="headerlink" title="网络模块的选择"></a>网络模块的选择</h3><blockquote>
+<p>原生Ajax<br>特点：基于XMLHttpRequert，配置和调用非常混乱</p>
+<p>fetch<br>特点：低层次的API，类似于原生的XHR，需要进行封装</p>
+<p>jquery-Ajax<br>特点：Jqury代码1W+行，为了使用$ajax下载jquery大可不必</p>
+<p>vue-resource<br>特点：支持vue1.x，不支持新版本，官方也不再推荐使用</p>
+<p>axios<br>特点：本身是一个promise对象</p>
+</blockquote>
+<h3 id="跨域设置"><a href="#跨域设置" class="headerlink" title="跨域设置"></a>跨域设置</h3><p>接口示例：<a target="_blank" rel="noopener" href="http://123.207.32.32:8000/home/multidata">coderwhy的接口</a></p>
+<p>这里以vue为例：<br>跨域设置本地服务器需要加上协议，如target:”<a href="http://localhost:3000&quot;">http://localhost:3000&quot;</a><br>axios在解析域名时先在遇到&#x2F;api前缀在其前加target后将&#x2F;api转换为pathRewrite中对应的内容</p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><blockquote>
+<p>取消请求使用配置对象canceltoken属性</p>
+<p>axios发送并发请求axios.all(类似于Promise.all),并可使用axios.spread展开结果的数组</p>
+<p>不传method默认get请求，get请求是通过query传递参数的,axios中是params；post是通过requesbody传递参数,axios中是data</p>
+<p>axios的封装。不要在每一个组件中单独引用axios，万一axios不再维护需要另一个框架来替换的时候代码量太大</p>
+</blockquote>
+<hr>
+<p>中文文档：<a target="_blank" rel="noopener" href="http://www.axios-js.com/zh-cn/docs/">中文文档</a></p>
+<p>参考视频：<br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1wr4y1K7tq?spm_id_from=333.999.0.0">BV1wr4y1K7tq</a>   <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV17j411f74d?p=141">BV17j411f74d</a></p>
 
                 
               </div>
@@ -327,7 +365,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/vscode/">#vscode</a>
+        <a href="/tags/axios/">#axios</a>
       
     </div>
   
@@ -339,8 +377,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>vscode代码片段快捷生成</div>
-      <div>https://s1xpences.github.io/2022/07/08/a005-vscode代码片段快捷生成/</div>
+      <div>数据请求之axios</div>
+      <div>https://s1xpences.github.io/2022/07/15/a009-数据请求之axios/</div>
     </div>
     <div class="license-meta">
       
@@ -352,7 +390,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月8日</div>
+          <div>2022年7月15日</div>
         </div>
       
       
@@ -382,9 +420,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/07/11/a006-%E5%89%8D%E7%AB%AF%E6%A8%A1%E5%9D%97%E5%8C%96/" title="前端模块化">
+                      <a href="/2022/07/15/a010-js%E9%9D%99%E6%80%81%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85%E5%99%A8/" title="js静态模块打包器">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">前端模块化</span>
+                        <span class="hidden-mobile">js静态模块打包器</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -392,8 +430,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/07/a004-%E5%B8%B8%E7%94%A8%E7%9A%84git%E5%91%BD%E4%BB%A4/" title="常用的git命令">
-                        <span class="hidden-mobile">常用的git命令</span>
+                      <a href="/2022/07/12/a008-%E4%BF%A1%E6%81%AF%E4%B8%8E%E5%AD%98%E5%82%A8/" title="信息与存储">
+                        <span class="hidden-mobile">信息与存储</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
