@@ -60,6 +60,62 @@
       </tags>
   </entry>
   <entry>
+    <title>hexo+git搭建个人博客</title>
+    <url>/2022/07/01/a001-hexo+git%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
+    <content><![CDATA[<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ol>
+<li><p>新建项目文件夹，安装hexo</p>
+<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> hexo | npm <span class="hljs-keyword">install</span> hexo -g<br></code></pre></td></tr></table></figure>
+</li>
+<li><p>初始化</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><code class="hljs csharp">hexo <span class="hljs-keyword">init</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>安装git插件</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada">npm install hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>配置_config.yml</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">git@github.com:xxx/xxx.github.io.git</span> <br>  <span class="hljs-attr">branch:</span> [<span class="hljs-string">branch-name</span>]         <span class="hljs-comment">#仓库默认分支</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><ol>
+<li><p>清空public文件夹</p>
+<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo clean</span>                <br></code></pre></td></tr></table></figure>
+</li>
+<li><p>生成public文件夹</p>
+<figure class="highlight verilog"><table><tr><td class="code"><pre><code class="hljs verilog">hexo g  | hexo <span class="hljs-keyword">generate</span>   <br></code></pre></td></tr></table></figure>
+</li>
+<li><p>启动本地服务,默认地址为<a href="http://localhost:4000/(%E5%8F%AF%E8%B7%B3%E8%BF%87)">http://localhost:4000/(可跳过)</a></p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c">hexo s  <span class="hljs-string">| hexo server </span><br></code></pre></td></tr></table></figure>
+</li>
+<li><p>部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 GitHub</p>
+<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c">hexo d  <span class="hljs-string">| hexo deploy</span><br></code></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><ol>
+<li><p>新建md文件</p>
+<figure class="highlight haxe"><table><tr><td class="code"><pre><code class="hljs haxe">hexo <span class="hljs-keyword">new</span> <span class="hljs-type"></span>[layout] &lt;title&gt; <br>如：hexo <span class="hljs-keyword">new</span> <span class="hljs-type">photo</span> <span class="hljs-string">&#x27;test&#x27;</span><br></code></pre></td></tr></table></figure>
+<p>上述指令执行时，Hexo 会尝试在 scaffolds 中寻找photo.md布局，若找到，则根据该布局新建文章；<br>若未找到或指令中未指定该参数，则使用post.md新建文章。新建文章的名称在_config.yml中配置。</p>
+</li>
+<li><p>layout的指定</p>
+<blockquote>
+<p>不写默认：以post.md为模板，_posts下生成文件；</p>
+<p>draft：以draft.md为模板，_draft文件夹下生成草稿；</p>
+<p>page：以page.md为模板，source下生成文件夹，并自带index.md，可以通过xxx.github.io&#x2F;文件夹名 访问，相当于新建一个页面；</p>
+<p>自定义xxx：以xxx.md为模板，_posts下生成文件。</p>
+</blockquote>
+</li>
+</ol>
+<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p><a href="https://hexo.fluid-dev.com/docs/start/">fluid</a></p>
+<h3 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h3><p><a href="https://valine.js.org/quickstart.html">valine</a></p>
+<hr>
+<p>官方文档：<a href="https://hexo.io/zh-cn/">hexo</a></p>
+]]></content>
+      <categories>
+        <category>前端学习</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>有趣|有用的网站</title>
     <url>/2022/07/06/a003-%E6%9C%89%E8%B6%A3-%E6%9C%89%E7%94%A8%E7%9A%84%E7%BD%91%E7%AB%99/</url>
     <content><![CDATA[<h3 id="影音类"><a href="#影音类" class="headerlink" title="影音类"></a>影音类</h3><ol>
@@ -148,62 +204,6 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo+git搭建个人博客</title>
-    <url>/2022/07/01/a001-hexo+git%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
-    <content><![CDATA[<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ol>
-<li><p>新建项目文件夹，安装hexo</p>
-<figure class="highlight cmake"><table><tr><td class="code"><pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> hexo | npm <span class="hljs-keyword">install</span> hexo -g<br></code></pre></td></tr></table></figure>
-</li>
-<li><p>初始化</p>
-<figure class="highlight csharp"><table><tr><td class="code"><pre><code class="hljs csharp">hexo <span class="hljs-keyword">init</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>安装git插件</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><code class="hljs ada">npm install hexo-deployer-git <span class="hljs-comment">--save</span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>配置_config.yml</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">deploy:</span><br>  <span class="hljs-attr">type:</span> <span class="hljs-string">git</span><br>  <span class="hljs-attr">repo:</span> <span class="hljs-string">git@github.com:xxx/xxx.github.io.git</span> <br>  <span class="hljs-attr">branch:</span> [<span class="hljs-string">branch-name</span>]         <span class="hljs-comment">#仓库默认分支</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><ol>
-<li><p>清空public文件夹</p>
-<figure class="highlight ebnf"><table><tr><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">hexo clean</span>                <br></code></pre></td></tr></table></figure>
-</li>
-<li><p>生成public文件夹</p>
-<figure class="highlight verilog"><table><tr><td class="code"><pre><code class="hljs verilog">hexo g  | hexo <span class="hljs-keyword">generate</span>   <br></code></pre></td></tr></table></figure>
-</li>
-<li><p>启动本地服务,默认地址为<a href="http://localhost:4000/(%E5%8F%AF%E8%B7%B3%E8%BF%87)">http://localhost:4000/(可跳过)</a></p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c">hexo s  <span class="hljs-string">| hexo server </span><br></code></pre></td></tr></table></figure>
-</li>
-<li><p>部署站点，在本地生成.deploy_git文件夹，并将编译后的文件上传至 GitHub</p>
-<figure class="highlight 1c"><table><tr><td class="code"><pre><code class="hljs 1c">hexo d  <span class="hljs-string">| hexo deploy</span><br></code></pre></td></tr></table></figure></li>
-</ol>
-<h3 id="写作"><a href="#写作" class="headerlink" title="写作"></a>写作</h3><ol>
-<li><p>新建md文件</p>
-<figure class="highlight haxe"><table><tr><td class="code"><pre><code class="hljs haxe">hexo <span class="hljs-keyword">new</span> <span class="hljs-type"></span>[layout] &lt;title&gt; <br>如：hexo <span class="hljs-keyword">new</span> <span class="hljs-type">photo</span> <span class="hljs-string">&#x27;test&#x27;</span><br></code></pre></td></tr></table></figure>
-<p>上述指令执行时，Hexo 会尝试在 scaffolds 中寻找photo.md布局，若找到，则根据该布局新建文章；<br>若未找到或指令中未指定该参数，则使用post.md新建文章。新建文章的名称在_config.yml中配置。</p>
-</li>
-<li><p>layout的指定</p>
-<blockquote>
-<p>不写默认：以post.md为模板，_posts下生成文件；</p>
-<p>draft：以draft.md为模板，_draft文件夹下生成草稿；</p>
-<p>page：以page.md为模板，source下生成文件夹，并自带index.md，可以通过xxx.github.io&#x2F;文件夹名 访问，相当于新建一个页面；</p>
-<p>自定义xxx：以xxx.md为模板，_posts下生成文件。</p>
-</blockquote>
-</li>
-</ol>
-<h3 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h3><p><a href="https://hexo.fluid-dev.com/docs/start/">fluid</a></p>
-<h3 id="评论"><a href="#评论" class="headerlink" title="评论"></a>评论</h3><p><a href="https://valine.js.org/quickstart.html">valine</a></p>
-<hr>
-<p>官方文档：<a href="https://hexo.io/zh-cn/">hexo</a></p>
-]]></content>
-      <categories>
-        <category>前端学习</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Git</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常用的git命令</title>
     <url>/2022/07/07/a004-%E5%B8%B8%E7%94%A8%E7%9A%84git%E5%91%BD%E4%BB%A4/</url>
     <content><![CDATA[<h3 id="本地信息配置"><a href="#本地信息配置" class="headerlink" title="本地信息配置"></a>本地信息配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs git">git config --global --list<br>git config --global user.name<br>git config --global user.email<br></code></pre></td></tr></table></figure>
@@ -211,7 +211,7 @@
 
 <h3 id="SSH配置"><a href="#SSH配置" class="headerlink" title="SSH配置"></a>SSH配置</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs git">ssh-keygen -t rsa -C &#x27;xxx@xxx.com&#x27;<br></code></pre></td></tr></table></figure>
 <blockquote>
-<p>公钥路径：C:&#x2F;Users&#x2F;Administrator&#x2F;.ssh&#x2F;id_rsa.pub<br>验证ssh是否生效：ssh -T <a href="mailto:&#x67;&#105;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#111;&#109;">&#x67;&#105;&#116;&#64;&#103;&#x69;&#x74;&#x68;&#117;&#98;&#x2e;&#x63;&#111;&#109;</a>                                       </p>
+<p>公钥路径：C:&#x2F;Users&#x2F;Administrator&#x2F;.ssh&#x2F;id_rsa.pub<br>验证ssh是否生效：ssh -T <a href="mailto:&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">&#x67;&#x69;&#116;&#x40;&#x67;&#105;&#116;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;</a>                                       </p>
 </blockquote>
 <h3 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><code class="hljs git">git branch -avv<br>git branch -vv<br>git remote -vv<br>git diff<br>git log --oneline<br>git checkout xxx      或  git switch xxx           <br>git checkout -b xxx   或  git switch -c xxx<br></code></pre></td></tr></table></figure>
 
@@ -509,59 +509,6 @@ git ls-remote --tag                    //查看远程所有tag
       </tags>
   </entry>
   <entry>
-    <title>数据请求之axios</title>
-    <url>/2022/07/15/a009-%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E4%B9%8Baxios/</url>
-    <content><![CDATA[<h3 id="数据请求的特点"><a href="#数据请求的特点" class="headerlink" title="数据请求的特点"></a>数据请求的特点</h3><p><strong>1. 无刷新更新数据</strong></p>
-<p><strong>2. 异步与服务器通信</strong></p>
-<p><strong>3. 前端和后端负载平衡</strong></p>
-<p><strong>4. 基于、支持标准</strong></p>
-<p><strong>5. 界面与应用分离</strong></p>
-<h3 id="什么是axios"><a href="#什么是axios" class="headerlink" title="什么是axios"></a>什么是axios</h3><p>axios是基于promise的http客户端，可以在浏览器(发送AJAX)和node(发送http请求)环境中运行<br>axios的执行结果返回是一个promise对象</p>
-<h3 id="响应结果结构"><a href="#响应结果结构" class="headerlink" title="响应结果结构"></a>响应结果结构</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">&#123;config,data,headers,request,status,statusTxt&#125;<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>config：发送请求的配置对象<br>data：响应体的结果，axios自动进行了json解析<br>headers：响应头信息<br>request：原生的ajax请求对象<br>status：响应状态码<br>statusTxt：响应状态字符串</p>
-</blockquote>
-<h3 id="请求配置对象"><a href="#请求配置对象" class="headerlink" title="请求配置对象"></a>请求配置对象</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">&#123;url,method,baseURL,transformRequest,transformResponse,headers,params&#125;<br></code></pre></td></tr></table></figure>
-<blockquote>
-<p>transformRequest：对请求参数进行预处理<br>transformResponse：对响应结果进行预处理</p>
-</blockquote>
-<h3 id="实例对象"><a href="#实例对象" class="headerlink" title="实例对象"></a>实例对象</h3><p>实例对象的功能和axios的功能几近一样，使用时一般不会使用全局的axios<br>可以应用实例给不同的域名设置默认配置</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">axios.<span class="hljs-property">defaults</span>.<span class="hljs-property">baseURL</span><br><span class="hljs-keyword">const</span> duanzi = axios.<span class="hljs-title function_">create</span>(&#123;<span class="hljs-attr">baseURL</span>:<span class="hljs-string">&#x27;http://b.com&#x27;</span>&#125;)<br></code></pre></td></tr></table></figure>
-<h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><blockquote>
-<p>拦截器类似于promise.prototype.then(成功回调，失败回调)<br>请求拦截器config：可以对请求参数进行处理<br>响应拦截器response：可以对响应结果进行处理<br>请求拦截器使用场景：</p>
-<ul>
-<li>config中的信息不符合服务器的要求，需要更改时</li>
-<li>每次发送网络请求希望界面显示请求图标时(转圈效果)</li>
-<li>某些网络请求(比如登录需要携带token)，必须携带一些特殊信息时</li>
-</ul>
-</blockquote>
-<h3 id="网络模块的选择"><a href="#网络模块的选择" class="headerlink" title="网络模块的选择"></a>网络模块的选择</h3><blockquote>
-<p>原生Ajax<br>特点：基于XMLHttpRequert，配置和调用非常混乱</p>
-<p>fetch<br>特点：低层次的API，类似于原生的XHR，需要进行封装</p>
-<p>jquery-Ajax<br>特点：Jqury代码1W+行，为了使用$ajax下载jquery大可不必</p>
-<p>vue-resource<br>特点：支持vue1.x，不支持新版本，官方也不再推荐使用</p>
-<p>axios<br>特点：本身是一个promise对象</p>
-</blockquote>
-<h3 id="跨域设置"><a href="#跨域设置" class="headerlink" title="跨域设置"></a>跨域设置</h3><p>接口示例：<a href="http://123.207.32.32:8000/home/multidata">coderwhy的接口</a></p>
-<p>这里以vue为例：<br>跨域设置本地服务器需要加上协议，如target:”<a href="http://localhost:3000&quot;">http://localhost:3000&quot;</a><br>axios在解析域名时先在遇到&#x2F;api前缀在其前加target后将&#x2F;api转换为pathRewrite中对应的内容</p>
-<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><blockquote>
-<p>取消请求使用配置对象canceltoken属性</p>
-<p>axios发送并发请求axios.all(类似于Promise.all),并可使用axios.spread展开结果的数组</p>
-<p>不传method默认get请求，get请求是通过query传递参数的,axios中是params；post是通过requesbody传递参数,axios中是data</p>
-<p>axios的封装。不要在每一个组件中单独引用axios，万一axios不再维护需要另一个框架来替换的时候代码量太大</p>
-</blockquote>
-<hr>
-<p>中文文档：<a href="http://www.axios-js.com/zh-cn/docs/">中文文档</a></p>
-<p>参考视频：<br><a href="https://www.bilibili.com/video/BV1wr4y1K7tq?spm_id_from=333.999.0.0">BV1wr4y1K7tq</a>   <a href="https://www.bilibili.com/video/BV17j411f74d?p=141">BV17j411f74d</a></p>
-]]></content>
-      <categories>
-        <category>前端学习</category>
-      </categories>
-      <tags>
-        <tag>axios</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>信息与存储</title>
     <url>/2022/07/12/a008-%E4%BF%A1%E6%81%AF%E4%B8%8E%E5%AD%98%E5%82%A8/</url>
     <content><![CDATA[<h3 id="信息"><a href="#信息" class="headerlink" title="信息"></a>信息</h3><h4 id="cookies"><a href="#cookies" class="headerlink" title="cookies"></a>cookies</h4><ol>
@@ -690,6 +637,59 @@ git ls-remote --tag                    //查看远程所有tag
       </tags>
   </entry>
   <entry>
+    <title>数据请求之axios</title>
+    <url>/2022/07/15/a009-%E6%95%B0%E6%8D%AE%E8%AF%B7%E6%B1%82%E4%B9%8Baxios/</url>
+    <content><![CDATA[<h3 id="数据请求的特点"><a href="#数据请求的特点" class="headerlink" title="数据请求的特点"></a>数据请求的特点</h3><p><strong>1. 无刷新更新数据</strong></p>
+<p><strong>2. 异步与服务器通信</strong></p>
+<p><strong>3. 前端和后端负载平衡</strong></p>
+<p><strong>4. 基于、支持标准</strong></p>
+<p><strong>5. 界面与应用分离</strong></p>
+<h3 id="什么是axios"><a href="#什么是axios" class="headerlink" title="什么是axios"></a>什么是axios</h3><p>axios是基于promise的http客户端，可以在浏览器(发送AJAX)和node(发送http请求)环境中运行<br>axios的执行结果返回是一个promise对象</p>
+<h3 id="响应结果结构"><a href="#响应结果结构" class="headerlink" title="响应结果结构"></a>响应结果结构</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">&#123;config,data,headers,request,status,statusTxt&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>config：发送请求的配置对象<br>data：响应体的结果，axios自动进行了json解析<br>headers：响应头信息<br>request：原生的ajax请求对象<br>status：响应状态码<br>statusTxt：响应状态字符串</p>
+</blockquote>
+<h3 id="请求配置对象"><a href="#请求配置对象" class="headerlink" title="请求配置对象"></a>请求配置对象</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">&#123;url,method,baseURL,transformRequest,transformResponse,headers,params&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>transformRequest：对请求参数进行预处理<br>transformResponse：对响应结果进行预处理</p>
+</blockquote>
+<h3 id="实例对象"><a href="#实例对象" class="headerlink" title="实例对象"></a>实例对象</h3><p>实例对象的功能和axios的功能几近一样，使用时一般不会使用全局的axios<br>可以应用实例给不同的域名设置默认配置</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><code class="hljs javascript">axios.<span class="hljs-property">defaults</span>.<span class="hljs-property">baseURL</span><br><span class="hljs-keyword">const</span> duanzi = axios.<span class="hljs-title function_">create</span>(&#123;<span class="hljs-attr">baseURL</span>:<span class="hljs-string">&#x27;http://b.com&#x27;</span>&#125;)<br></code></pre></td></tr></table></figure>
+<h3 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h3><blockquote>
+<p>拦截器类似于promise.prototype.then(成功回调，失败回调)<br>请求拦截器config：可以对请求参数进行处理<br>响应拦截器response：可以对响应结果进行处理<br>请求拦截器使用场景：</p>
+<ul>
+<li>config中的信息不符合服务器的要求，需要更改时</li>
+<li>每次发送网络请求希望界面显示请求图标时(转圈效果)</li>
+<li>某些网络请求(比如登录需要携带token)，必须携带一些特殊信息时</li>
+</ul>
+</blockquote>
+<h3 id="网络模块的选择"><a href="#网络模块的选择" class="headerlink" title="网络模块的选择"></a>网络模块的选择</h3><blockquote>
+<p>原生Ajax<br>特点：基于XMLHttpRequert，配置和调用非常混乱</p>
+<p>fetch<br>特点：低层次的API，类似于原生的XHR，需要进行封装</p>
+<p>jquery-Ajax<br>特点：Jqury代码1W+行，为了使用$ajax下载jquery大可不必</p>
+<p>vue-resource<br>特点：支持vue1.x，不支持新版本，官方也不再推荐使用</p>
+<p>axios<br>特点：本身是一个promise对象</p>
+</blockquote>
+<h3 id="跨域设置"><a href="#跨域设置" class="headerlink" title="跨域设置"></a>跨域设置</h3><p>接口示例：<a href="http://123.207.32.32:8000/home/multidata">coderwhy的接口</a></p>
+<p>这里以vue为例：<br>跨域设置本地服务器需要加上协议，如target:”<a href="http://localhost:3000&quot;">http://localhost:3000&quot;</a><br>axios在解析域名时先在遇到&#x2F;api前缀在其前加target后将&#x2F;api转换为pathRewrite中对应的内容</p>
+<h3 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h3><blockquote>
+<p>取消请求使用配置对象canceltoken属性</p>
+<p>axios发送并发请求axios.all(类似于Promise.all),并可使用axios.spread展开结果的数组</p>
+<p>不传method默认get请求，get请求是通过query传递参数的,axios中是params；post是通过requesbody传递参数,axios中是data</p>
+<p>axios的封装。不要在每一个组件中单独引用axios，万一axios不再维护需要另一个框架来替换的时候代码量太大</p>
+</blockquote>
+<hr>
+<p>中文文档：<a href="http://www.axios-js.com/zh-cn/docs/">中文文档</a></p>
+<p>参考视频：<br><a href="https://www.bilibili.com/video/BV1wr4y1K7tq?spm_id_from=333.999.0.0">BV1wr4y1K7tq</a>   <a href="https://www.bilibili.com/video/BV17j411f74d?p=141">BV17j411f74d</a></p>
+]]></content>
+      <categories>
+        <category>前端学习</category>
+      </categories>
+      <tags>
+        <tag>axios</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>js静态模块打包器</title>
     <url>/2022/07/15/a010-js%E9%9D%99%E6%80%81%E6%A8%A1%E5%9D%97%E6%89%93%E5%8C%85%E5%99%A8/</url>
     <content><![CDATA[<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><h3 id="什么是webpack"><a href="#什么是webpack" class="headerlink" title="什么是webpack"></a>什么是webpack</h3><ol>
@@ -744,22 +744,6 @@ git ls-remote --tag                    //查看远程所有tag
         <tag>Rollup</tag>
         <tag>vite</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>【置顶】写在前面</title>
-    <url>/2022/07/15/b001-%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/</url>
-    <content><![CDATA[<p><strong>看了网上很多大神的文章，最近想着搭建一个自己的博客，发现hexo+git简单又好用，于是乎就自己琢磨，搭建了这个博客！</strong><br><strong>交流学习的同时记录一下自己的所见所想！</strong><br><strong>以前的学习笔记也会陆陆续续的搬运过来！</strong><br><strong>欢迎留言评论！</strong><br><strong>life is fantastic！</strong></p>
-<p>今日份推荐歌曲《还在流浪》，杰伦新歌耶！</p>
-<iframe src="//player.bilibili.com/player.html?aid=215901212&bvid=BV1Da411n793&cid=772894060&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1873106729&auto=1&height=66"></iframe> -->
-
-<!-- <audio id="audio" controls="" preload="none">
-      <source id="mp3" src="http://qiniu.cloud.fandong.me/Music_iP%E8%B5%B5%E9%9C%B2%20-%20%E7%A6%BB%E6%AD%8C%20%28Live%29.mp3">
-</audio> -->
-<!-- <video id="video" controls="" preload="none" poster="http://img.blog.fandong.me/2017-08-26-Markdown-Advance-Video.jpg">
-      <source id="mp4" src="https://www.bilibili.com/video/BV1Mv411g7XB?spm_id_from=333.337.search-card.all.click&vd_source=1b26e7eb1ec7cfea25ba7eb77782eb66" type="video/mp4">
-</video> -->
-]]></content>
   </entry>
   <entry>
     <title>前端框架之vue</title>
@@ -923,6 +907,22 @@ git ls-remote --tag                    //查看远程所有tag
       </tags>
   </entry>
   <entry>
+    <title>【置顶】写在前面</title>
+    <url>/2022/07/15/b001-%E5%86%99%E5%9C%A8%E5%89%8D%E9%9D%A2/</url>
+    <content><![CDATA[<p><strong>看了网上很多大神的文章，最近想着搭建一个自己的博客，发现hexo+git简单又好用，于是乎就自己琢磨，搭建了这个博客！</strong><br><strong>交流学习的同时记录一下自己的所见所想！</strong><br><strong>以前的学习笔记也会陆陆续续的搬运过来！</strong><br><strong>欢迎留言评论！</strong><br><strong>life is fantastic！</strong></p>
+<p>今日份推荐歌曲《还在流浪》，杰伦新歌耶！</p>
+<iframe src="//player.bilibili.com/player.html?aid=215901212&bvid=BV1Da411n793&cid=772894060&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<!-- <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=1873106729&auto=1&height=66"></iframe> -->
+
+<!-- <audio id="audio" controls="" preload="none">
+      <source id="mp3" src="http://qiniu.cloud.fandong.me/Music_iP%E8%B5%B5%E9%9C%B2%20-%20%E7%A6%BB%E6%AD%8C%20%28Live%29.mp3">
+</audio> -->
+<!-- <video id="video" controls="" preload="none" poster="http://img.blog.fandong.me/2017-08-26-Markdown-Advance-Video.jpg">
+      <source id="mp4" src="https://www.bilibili.com/video/BV1Mv411g7XB?spm_id_from=333.337.search-card.all.click&vd_source=1b26e7eb1ec7cfea25ba7eb77782eb66" type="video/mp4">
+</video> -->
+]]></content>
+  </entry>
+  <entry>
     <title>记录第一次留长发</title>
     <url>/2022/07/23/b002-%E8%AE%B0%E5%BD%95%E7%AC%AC%E4%B8%80%E6%AC%A1%E7%95%99%E9%95%BF%E5%8F%91/</url>
     <content><![CDATA[<p>说来也奇怪，我从小就想留长发，也喜欢鼓捣造型，用我们那里的话说叫‘爱假’。</p>
@@ -938,7 +938,7 @@ git ls-remote --tag                    //查看远程所有tag
 <iframe src="//player.bilibili.com/player.html?aid=378500325&bvid=BV1if4y1c7tb&cid=423562169&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 <hr>
-<img src="/img/sample/b002/20220723100655.jpg">]]></content>
+<img src="/img/sample/b002/20220723_101305.jpg">]]></content>
       <categories>
         <category>所见所想</category>
       </categories>
